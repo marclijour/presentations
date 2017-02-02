@@ -4,6 +4,7 @@ target=day1
 
 clean: 
 	rm -f *.aux *~ *.log *.bak *.bbl *.blg *.dvi *.backup *.lof *.toc *.lot *.nav *.out *.snm *.bcf *run.xml *-blx.bib
+	rm -f ../*.aux ../*~ ../*.log ../*.bak ../*.bbl ../*.blg ../*.dvi ../*.backup ../*.lof ../*.toc ../*.lot ../*.nav ../*.out ../*.snm ../*.bcf ../*run.xml ../*-blx.bib
 
 pdf:
 	pdflatex ${target}
@@ -12,30 +13,30 @@ pdf:
 	pdflatex ${target}
 
 day1:
-	pdflatex day1
-	biber day1
-	pdflatex day1
+	pdflatex -output-directory .. day1
+	biber ../day1
+	pdflatex -output-directory .. day1
 
 day2:
-	pdflatex day2
-	biber day2
-	pdflatex day2
+	pdflatex -output-directory .. day2
+	biber ../day2
+	pdflatex -output-directory .. day2
 
 day3:
-	pdflatex day3
-	biber day3
-	pdflatex day3
+	pdflatex -output-directory .. day3
+	biber ../day3
+	pdflatex -output-directory .. day3
 
 view:
 	xreader ${target}.pdf &
 
 viewday1: 
-	xreader day1.pdf &
+	xreader ../day1.pdf &
 
 
 viewday2: 
-	xreader day2.pdf &
+	xreader ../day2.pdf &
 
 viewday3: 
-	xreader day3.pdf &
+	xreader ../day3.pdf &
 
