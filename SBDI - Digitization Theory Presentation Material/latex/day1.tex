@@ -1,0 +1,49 @@
+% (C) Marc Lijour, 2016-2017 
+% Licensed under a Creative Commons License BY-SA
+% https://creativecommons.org/licenses/by-sa/2.5/ca/
+% Presentation for the Small Business Digitization Initiative (SBDI) training program
+% see http://www.ictc-ctic.ca/small-business-digitization-initiative/ 
+% authored by Marc Lijour, December 2016
+% for the session running from January 2017 to September 2017
+% 
+% Variables
+% TODO set the variables
+% ---------------------- USER-DEFINED --------------------------------
+\newcommand{\SFLtitle}{Digitization~Theory~1}
+\newcommand{\SFLlongtitle}{How Digital Technology is Dirupting Everything}
+\newcommand{\SFLsubtitle}{Small Business Digitization Initiative (SBDI) - Day 1}
+\newcommand{\SFLauthor}{Marc~Lijour}
+\newcommand{\SFLdate}{January 23, 2017}
+\newcommand{\SFLsubject}{Digitization Theory}
+% --------------------------------------------------------------------
+% Template
+\input{../templates/sfl-presentation-template-blue-EN-with-CC-BY-SA}
+% Extra packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+% Use one bib file per section
+%\addbibresource{references-program-overview.bib}
+\addbibresource{references-4th-industrial-revolution.bib}
+\addbibresource{references-theory-of-innovation.bib}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+% Start of the document
+\begin{document}
+% Cover page
+% Do not use this: \frame{\titlepage}
+% use this instead:
+\SFLcoverpage
+
+% Morning: Setting the Stage -What's at Stake
+\input{section-program-overview}
+\input{section-4th-industrial-revolution}
+
+% Afternoon: Conceptualizing Innovation
+\input{section-theory-of-innovation}
+
+\end{document}
+
