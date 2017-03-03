@@ -1,0 +1,95 @@
+% (C) Savoir-faire Linux, 2016 (this document and associated logos and art)
+% This document is licensed under a Creative Commons License BY-SA (feel free to use the code, but all rights are reserved for logos and art)
+% https://creativecommons.org/licenses/by-sa/2.5/ca/
+% Savoir-faire Linux presentation template for LaTeX
+% authored by Marc Lijour, December 2016
+% This template comes with a first page on a blue background
+% Possible improvement in future iterations
+% - Test and fix as needed to work on xetex (to use Ubuntu fonts)
+% === USAGE===
+% Create a file for your LaTeX content (slides, etc), in which you must do the following:
+% TODO 1 - set variables defined below
+% TODO 2 - include this code by calling: \input{sfl-presentation-template-blue-EN}
+% TODO 3 - Start the document as usual and you're in business; just use \begin{document} and don't forget to conclude with \end{document}
+% TODO 4 - Use the custom method \SFLcoverpage instead of \titlepage to create your cover page
+% Voilà!
+%
+\documentclass{beamer}
+\usepackage{etoolbox}
+% Variables
+% ---------------------- USER-DEFINED --------------------------------
+\ifdef{\SFLtitle}{}{\newcommand{\SFLtitle}{\color{red}Title TBD}}
+\ifdef{\SFLlongtitle}{}{\newcommand{\SFLlongtitle}{\color{red}Long title TBD}}
+\ifdef{\SFLsubtitle}{}{\newcommand{\SFLsubtitle}{\color{red}Subtitle TBD}}
+\ifdef{\SFLauthor}{}{\newcommand{\SFLauthor}{\color{red}Author TBD}}
+\ifdef{\SFLdate}{}{\newcommand{\SFLdate}{\color{red}Date TBD}}
+\ifdef{\SFLsubject}{}{\newcommand{\SFLsubject}{\color{red}Subject TBD}}
+% --------------------------------------------------------------------
+\usetheme{Boadilla}
+% Set color close to Savoir-faire Linux standard
+\definecolor{beamer@blendedblue}{RGB}{86,176,201}
+% Cover Page
+\title[\SFLtitle] {\SFLlongtitle}
+\subtitle{\SFLsubtitle}
+\author{\SFLauthor}
+\date{\SFLdate}
+\subject{\SFLsubject}
+\usepackage{tikz}
+% -- possible approach through modif of the template (abandonned for now)
+%\addtobeamertemplate{title page}{
+%    \tikz[remember picture,overlay]
+%        \node at ([xshift=0cm,yshift=0cm]current page.center) 
+%		 {\includegraphics[width=\paperwidth, height=\paperheight]{./images/sfl-background-blue}};
+%}{}
+%\setbeamercolor{title page}{fg=white}
+%\setbeamercolor{titlelike}{fg=white}
+%\setbeamertemplate{navigation symbols}{}
+% Try Xetex to use system fonts (pdflatex makes it hard to import a font)
+%\usepackage{fontspec}
+%\setsansfont{Ubuntu}
+%\setmonofont{Ubuntu Mono}
+%
+%\usepackage[absolute,overlay]{textpos}
+%\setlength{\TPHorizModule}{\paperwidth}
+%\setlength{\TPVertModule}{\paperheight}
+% -- create a custom (command) title page -which has the benefit of not affecting the settings for the rest of the presentation
+\newcommand{\SFLcoverpage}{\frame[plain]{
+	\tikz[remember picture,overlay] {
+        	\node(bkgd) at ([xshift=0cm,yshift=0cm]current page.center) 
+			{\includegraphics[width=\paperwidth, height=\paperheight]{../templates/images/sfl-background-blue}};
+        	\node(logo) at ([xshift=0cm,yshift=2.5cm]current page.center) 
+		 	{\includegraphics[scale=.20]{../templates/images/logo-sfl-blanc-rgb-72dpi}};
+	}
+	\tikz[remember picture,overlay] {
+        	\node(title) at ([xshift=0cm,yshift=1cm]current page.center) 
+			{\Large\color{white}\textbf{{\SFLlongtitle}}};
+        	\node(subtitle) at ([xshift=0cm,yshift=.2cm]current page.center) 
+			{\small\color{white}\emph{\SFLsubtitle}};
+        	\node(author) at ([xshift=0cm,yshift=-2cm]current page.center) 
+			{\small\color{white}By~\SFLauthor};
+        	\node(date) at ([xshift=0cm,yshift=-2.5cm]current page.center) 
+			{\tiny\color{white}\SFLdate};
+        	\node(footnote) at ([xshift=0cm,yshift=-4cm]current page.center) 
+			{\TINY\color{white}\emph{The registered trademark Linux$^\circledR$ is used pursuant to a sublicense from LMI, the exclusive licensee of Linus Torvalds, owner of the mark on a world-wide basis.}};
+    	}
+}}
+%
+% This sets a Savoir-faire Linux logo at the bottom right corner of each page
+\logo{\includegraphics[scale=.1]{../templates/images/logo-sfl-250.png}}
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+%\usepackage[format=plain,justification=raggedright,singlelinecheck=false]{caption}
+\usepackage[format=plain,justification=justified,singlelinecheck=false]{caption}
+\usepackage[utf8]{inputenc}
+\usepackage{dirtytalk}
+\usepackage{wrapfig}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{mathabx}
+%\usepackage{MnSymbol}
+

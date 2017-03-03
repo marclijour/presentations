@@ -1,0 +1,144 @@
+% (C) Marc Lijour, 2016-2017 
+% Licensed under a Creative Commons License BY-SA
+% https://creativecommons.org/licenses/by-sa/2.5/ca/
+% Presentation for the Small Business Digitization Initiative (SBDI) training program
+% see http://www.ictc-ctic.ca/small-business-digitization-initiative/ 
+% authored by Marc Lijour, December 2016
+% for the session running from January 2017 to September 2017
+% 
+% Variables
+% TODO set the variables
+% ---------------------- USER-DEFINED --------------------------------
+\newcommand{\SFLtitle}{Tech~Labs}
+\newcommand{\SFLlongtitle}{Sharing Files and Drives in Linux}
+\newcommand{\SFLsubtitle}{The short way}
+\newcommand{\SFLauthor}{Marc~Lijour}
+\newcommand{\SFLdate}{February~7, 2017}
+\newcommand{\SFLsubject}{Tech~Labs}
+% --------------------------------------------------------------------
+% Template
+\input{../templates/sfl-presentation-template-blue-EN-with-CC-BY-SA}
+% Extra packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+% Use one bib file per section
+\addbibresource{references-shared-drives.bib}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+% Start of the document
+\begin{document}
+% Cover page
+% Do not use this: \frame{\titlepage}
+% use this instead:
+\SFLcoverpage
+
+% ======================================================================================================
+%                                  SHARED DRIVES 
+% ======================================================================================================
+\section{Sharing a Drive}
+% --------------------- Sources of Innovation --------------------------
+\frame{
+	\frametitle{Purpose}
+	\begin{itemize}
+		\item Share some files with people who use Linux, Windows, or other
+		\item Share files between machines
+		\item Make files accessible throughout your home or office (but not outside those walls)
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Open the Sharing Options (right-click)}
+        \begin{figure}
+		\includegraphics[height=7cm]{../pics/drive-right-click}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Folder Properties}
+        \begin{figure}
+		\includegraphics[height=7cm]{../pics/drive-4-share}
+		\caption{Pic and guidance from \cite{magicmint}}
+	\end{figure}
+
+}
+
+\frame{
+	\frametitle{Fix a few details}
+	\framesubtitle{Install Samba, the SMB file server, \& create the expected folder with the right permissions}
+%	\begin{exampleblock}{Type this as root}
+		\texttt{\$ sudo su - \# to become root \\
+			\# apt-get install samba \\
+			\# /etc/init.d/samba restart \\
+			\# mkdir /var/lib/samba/usershares/ \\
+			\# chmod 1775 /var/lib/samba/usershares/ \\
+			\# chown root:sambashare /var/lib/samba/usershares/ \\
+			\# service samba restart \# or try /etc/init.d/samba restart \\
+			\# exit
+		}
+%	\end{exampleblock}
+}
+
+\frame{
+	\frametitle{Another potential fix}
+	\framesubtitle{In case your computer has a long name ($>$ 15 characters)}
+	Samba prefers short names (less than 15 characters). Add the following line in /etc/samba/smb.conf, just after the line with ``server string\ldots'':\\
+	\hspace{5em}\texttt{netbios name = Whatever}\\
+	(Change \texttt{Whatever} by whatever you want your computer name to be.)\\
+	\vspace{3em}
+%	\begin{exampleblock}{Type this as root}
+		\texttt{\$ sudo su - \# to become root \\
+			\# gedit /etc/samba/smb.conf \\
+			\# exit \\
+		}
+%	\end{exampleblock}
+}
+
+\frame{
+	\frametitle{Browse the Network (same computer or another)}
+	\framesubtitle{Click on ``Windows Network'' and keep clicking under you see your folders}
+        \begin{figure}
+		\includegraphics[height=7cm]{../pics/nemo-network}
+	\end{figure}
+}
+
+\section{More things you can do}
+% --------------------- Extra / Other things ------------------
+\frame{
+	\frametitle{Set a Work Group}
+	\framesubtitle{Let's create our own ``SBDI'' group}
+	You need to edit the config file \texttt{/etc/samba/smb.conf} \\
+	\vspace{2em}
+		\texttt{\$ sudo su - \# to become root \\
+			\# gedit /etc/samba/smb.conf \\
+			\# exit \\
+		}
+	\vspace{2em}
+	After ``workgroup = '', change \texttt{WORKGROUP} for \texttt{SBDI}. Save the file and restart Samba.\\
+	\vspace{2em}
+	\texttt{\$ sudo /etc/init.d/samba restart}  \\
+}
+
+\frame{
+	\frametitle{Debugging}
+	\framesubtitle{Get information on what's going on}
+	\texttt{\$ testparm -s \\
+		\$ net usershare info --long \\
+	}
+	\vspace{3em}
+	For more information see \cite{ubunturefshares}
+}
+
+\section{References}
+% --------------------- References --------------------------
+\frame{
+	\frametitle{References}
+	\printbibliography	
+}
+
+
+\end{document}
+

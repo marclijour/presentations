@@ -1,0 +1,166 @@
+% (C) Marc Lijour, 2016-2017 
+% Licensed under a Creative Commons License BY-SA
+% https://creativecommons.org/licenses/by-sa/2.5/ca/
+% Presentation for the Small Business Digitization Initiative (SBDI) training program
+% see http://www.ictc-ctic.ca/small-business-digitization-initiative/ 
+% authored by Marc Lijour, December 2016
+% for the session running from January 2017 to September 2017
+% 
+% Variables
+% TODO set the variables
+% ---------------------- USER-DEFINED --------------------------------
+\newcommand{\SFLtitle}{Tech~Labs}
+\newcommand{\SFLlongtitle}{Independent Study}
+\newcommand{\SFLsubtitle}{Time to deepen in an area of interest!}
+\newcommand{\SFLauthor}{Marc~Lijour}
+\newcommand{\SFLdate}{February~8, 2017}
+\newcommand{\SFLsubject}{Tech~Labs}
+% --------------------------------------------------------------------
+% Template
+\input{../templates/sfl-presentation-template-blue-EN-with-CC-BY-SA}
+% Extra packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+% Use one bib file per section
+\addbibresource{references-independent-study-AWS.bib}
+\addbibresource{references-independent-study-wordpress.bib}
+\addbibresource{references-independent-study-python.bib}
+\addbibresource{references-independent-study-router.bib}
+\addbibresource{references-independent-study-vpn.bib}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+% Start of the document
+\begin{document}
+% Cover page
+% Do not use this: \frame{\titlepage}
+% use this instead:
+\SFLcoverpage
+
+% ======================================================================================================
+%                                  INDEPENDENT STUDY 
+% ======================================================================================================
+\section{Independent Study}
+% --------------------- Student projects --------------------------
+\frame{
+	\frametitle{Your turn to share}
+	\begin{itemize}
+		\item Tell us about a project you've done
+		\item Teach us something
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Time for Independent Study}
+	Objective: to go deeper in a topic of (your) interest
+	\begin{itemize}
+		\item Work in teams or on your own
+		\item Go at your pace
+		\item Find more information to read
+		\item Ask for advice
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Suggested Topics}
+	\begin{itemize}
+		\item Configure your Web presence with your local version of Odoo and/or Wordpress
+		\pause 
+		\item Setup a server in the cloud (Odoo, Wordpress, \ldots)
+		\pause 
+		\item Start programing in Python
+		\pause 
+		\item Setup a Wireless LAN (local area network) for your Home/Business
+		\pause 
+		\item Build expert knowledge on business software so you can recommend options to your employers/clients\\(continue with office suite, calendaring, videoconferencing, etc)
+		\pause 
+		\item Build a VPN server for your business
+		\pause 
+		\item Other idea?
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Wordpress 101}
+	\framesubtitle{How to setup a Web presence and blogs for your business}
+	Check tutorials:
+	\begin{itemize}
+		\item \href{https://codex.wordpress.org/WordPress_Lessons}{Lessons} (\cite{wordpresslessons})
+		\item \href{https://www.lynda.com/WordPress-training-tutorials/330-0.html}{10-day trial} (\cite{wordpresslynda})
+		\item \href{https://www.udemy.com/complete-wordpress-course-for-beginners/}{Online courses from \cite{wordpressudemy}} --also check Coursera and edX
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Setup a Wordpress server in Amazon Web Services (AWS)}
+	\framesubtitle{(or do it for Odoo)}
+	Check tutorials:
+	\begin{itemize}
+		\item \href{http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hosting-wordpress.html}{Full setup of Wordpress on Linux} (about the same as showed yesterday, except they use Amazon Linux vs. Mint, and Apache vs. Nginx) (\cite{awswordpresslinux})
+		\item \href{https://aws.amazon.com/getting-started/tutorials/launch-a-wordpress-website/}{Wordpress setup with a Bitnami instance} (\cite{awswordpressbitnami})
+		\item \href{https://tiffanybbrown.com/2015/07/wordpress-on-aws-beanstalk-rds/}{Wordpress setup on AWS Elastics Beanstalk (PaaS)} (\cite{awswordpresseb})
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Learn to program in Python}
+	Check the tutorials:
+	\begin{itemize}
+		\item \href{http://learning-python.com/books/about-lp5e.html}{Learning Python 5th edition} (\cite{learningpython})
+		\item \href{https://www.lynda.com/Python-training-tutorials/415-0.html}{Tutorials} (\cite{pythonlynda}) 
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Set up a Wireless Local Area Network (LAN) for your home/business}
+	Check the tutorials:
+	\begin{itemize}
+		\item \href{https://www.youtube.com/watch?v=x5lh1F-UDfk}{Video review \& setup} (\cite{youtubelinksys})
+		\item \href{http://cache-www.belkin.com/support/dl/WRT1900ACS_FUG_ENandFR-CA.pdf}{User guide} (\cite{routeruguide})
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Build a VPN server for your home/business}
+	Check the tutorial(s):
+	\begin{itemize}
+		\item \href{http://www.howtogeek.com/221001/how-to-set-up-your-own-home-vpn-server/}{Why VPN servers are good for, and a couple options} (\cite{vpnchris})
+		\item \href{https://www.cyberciti.biz/faq/howto-setup-openvpn-server-on-ubuntu-linux-14-04-or-16-04-lts/}{How to set up a VPN server on Linux in 5 minutes} (\cite{vpnvivek})
+		\item \href{https://sys.jonaharagon.com/2016/05/12/setting-up-an-openvpn-server-on-a-raspberry-pi-2-part-12/}{How to set up a VPN server on a Raspberry Pi 2} (\cite{jonaharagon})
+	\end{itemize}
+}
+
+
+\section{References}
+% --------------------- References --------------------------
+\frame{
+	\frametitle{References about Wordpress}
+	\printbibliography[keyword=independent-study-wordpress]	
+}
+
+\frame{
+	\frametitle{References about Amazon Web Services (AWS)}
+	\printbibliography[keyword=independent-study-AWS]	
+}
+
+\frame{
+	\frametitle{References about learning to program in Python}
+	\printbibliography[keyword=independent-study-python]	
+}
+
+\frame{
+	\frametitle{References about setting up a Wireless LAN}
+	\printbibliography[keyword=independent-study-router]	
+}
+
+\frame{
+	\frametitle{References about setting up a VPN server for your home/business}
+	\printbibliography[keyword=independent-study-vpn]	
+}
+
+
+\end{document}
+
