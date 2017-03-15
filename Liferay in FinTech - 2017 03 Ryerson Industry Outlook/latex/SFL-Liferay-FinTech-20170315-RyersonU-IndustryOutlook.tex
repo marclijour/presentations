@@ -1,0 +1,41 @@
+% (C) Savoir-faire Linux, 2017 
+% authored by Marc Lijour, March 2017
+% Some art belong to their respective authors, as indicated in the document
+% 
+% Variables
+% TODO set the variables
+% ---------------------- USER-DEFINED --------------------------------
+\newcommand{\SFLtitle}{FinTech Industry Outlook}
+\newcommand{\SFLlongtitle}{FinTech Industry Outlook, Ryerson University}
+\newcommand{\SFLsubtitle}{Trends, Case Study, and App Development Worshop (Liferay + Vaadin + Java)}
+\newcommand{\SFLauthor}{Marc~Lijour}
+\newcommand{\SFLdate}{March 15, 2017}
+\newcommand{\SFLsubject}{Liferay in FinTech}
+% --------------------------------------------------------------------
+% Template
+\input{../../Savoir-faire_Linux-LaTeX_Templates/sfl-presentation-template-blue-EN}
+% Extra packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+%\usepackage[backend=biber,style=apa]{biblatex}
+%\DeclareLanguageMapping{american}{american-apa}
+% Use one bib file per section
+%\addbibresource{references-program-overview.bib}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+% Start of the document
+\begin{document}
+% Cover page
+% Do not use this: \frame{\titlepage}
+% use this instead:
+\SFLcoverpage
+
+\input{section-SFL-overview}
+\input{section-FinTech}
+\input{section-case-study}
+\input{section-workshop}
+\input{section-closing}
+\end{document}
+
