@@ -1,4 +1,4 @@
-all: day1 day2 day3
+all: day1 day2 day3 day-extra
 
 target=day1
 
@@ -27,6 +27,11 @@ day3:
 	biber ../day3
 	pdflatex -output-directory .. day3
 
+day-extra:
+	pdflatex -output-directory .. day-extra
+	biber ../day3-extra
+	pdflatex -output-directory .. day-extra
+
 view:
 	xreader ${target}.pdf &
 
@@ -39,4 +44,8 @@ viewday2:
 
 viewday3: 
 	xreader ../day3.pdf &
+
+viewdayextra:
+	xreader ../day-extra.pdf &
+
 
