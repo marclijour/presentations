@@ -13,11 +13,12 @@
 \newcommand{\SFLlongtitle}{Creating Value with Software}
 \newcommand{\SFLsubtitle}{Small Business Digitization Initiative (SBDI) - Day 3}
 \newcommand{\SFLauthor}{Marc~Lijour}
-\newcommand{\SFLdate}{January 25, 2017}
+\newcommand{\SFLdate}{March~22, 2017}
 \newcommand{\SFLsubject}{Digitization Theory}
 % --------------------------------------------------------------------
 % Template
 \input{../templates/sfl-presentation-template-blue-EN-with-CC-BY-SA}
+
 % Extra packages
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -25,8 +26,15 @@
 \usepackage{csquotes}
 \usepackage[backend=biber,style=apa]{biblatex}
 \DeclareLanguageMapping{american}{american-apa}
+\DeclareCiteCommand{\citejournal}
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{journal}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
 % Use one bib file per section
 \addbibresource{references-FLOSS.bib}
+\addbibresource{references-global-competition.bib}
 %\addbibresource{references-XYZ.bib}
 \definecolor{links}{HTML}{2A1B81}
 \hypersetup{colorlinks,linkcolor=,urlcolor=links}
