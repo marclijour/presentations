@@ -29,7 +29,7 @@ day3:
 
 day-extra:
 	pdflatex -output-directory .. day-extra
-	biber ../day3-extra
+	biber ../day-extra
 	pdflatex -output-directory .. day-extra
 
 view:
