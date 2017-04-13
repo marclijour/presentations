@@ -83,6 +83,11 @@
 }
 
 \frame{
+	\frametitle{Update the firewall configuration (if you have one set up)}
+		\texttt{\$ sudo ufw allow samba}
+}
+
+\frame{
 	\frametitle{Another potential fix}
 	\framesubtitle{In case your computer has a long name ($>$ 15 characters)}
 	Samba prefers short names (less than 15 characters). Add the following line in /etc/samba/smb.conf, just after the line with ``server string\ldots'':\\
