@@ -1,4 +1,4 @@
-all: day1 day2 day3 day-extra
+all: day1 day2 day3 day-extra odoo-course-ERP
 
 target=day1
 
@@ -31,6 +31,11 @@ day-extra:
 	pdflatex -output-directory .. day-extra
 	biber ../day-extra
 	pdflatex -output-directory .. day-extra
+
+odoo-course-ERP:
+	pdflatex -output-directory .. odoo-course-ERP
+	biber ../odoo-course-ERP
+	pdflatex -output-directory .. odoo-course-ERP
 
 view:
 	xreader ${target}.pdf &
