@@ -1,0 +1,353 @@
+% (C) Marc Lijour, 2016-2017 
+% Licensed under a Creative Commons License BY-SA
+% https://creativecommons.org/licenses/by-sa/2.5/ca/
+% Presentation for the Toronto Odoo Meetup May 24, 2017
+% see https://www.meetup.com/Odoo-Toronto/events/239219681/?eventId=239219681
+% authored by Marc Lijour, May 2017
+% 
+% Variables
+% TODO set the variables
+% ---------------------- USER-DEFINED --------------------------------
+\newcommand{\SFLtitle}{Odoo~Intro}
+\newcommand{\SFLlongtitle}{The world of Odoo: what's new and exciting?}
+\newcommand{\SFLsubtitle}{Odoo Toronto Meetup (May 2017)}
+\newcommand{\SFLauthor}{Marc~Lijour}
+\newcommand{\SFLdate}{May~24, 2017}
+\newcommand{\SFLsubject}{Odoo}
+% --------------------------------------------------------------------
+% Template
+\input{../templates/sfl-presentation-template-blue-EN-with-CC-BY-SA}
+% Extra packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+% Use one bib file per section
+%\addbibresource{references-program-overview.bib}
+\addbibresource{references-odoo-course-erp.bib}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+% Start of the document
+\begin{document}
+% Cover page
+% Do not use this: \frame{\titlepage}
+% use this instead:
+\SFLcoverpage
+
+% ======================================================================================================
+%                                     Odoo: What is it?
+% ======================================================================================================
+\section{Odoo in two words}
+% --------------------- Short intro --------------------------
+\subsection{Smart and Simple}
+\frame{
+	\frametitle{An Operating System for Small Business}
+	\framesubtitle{The Fun way to doing more, faster, better, and cheaper...}
+	\begin{figure}
+	\includegraphics[width=11.5cm]{../pics/odoo-youtube-notERP}
+	\caption{\tiny\url{https://www.youtube.com/watch?v=2dhyhamLm6M&list=PL1-aSABtP6AALA_4hW2TyYIioOVEGQ3yf&index=6}}
+	\end{figure}
+}
+
+%\frame{
+%	\frametitle{}
+%	\framesubtitle{}
+%}
+
+\frame{
+	\frametitle{A Short Introduction to Odoo}
+	\framesubtitle{Odoo in a few words}
+	\begin{figure}	
+		\centering
+		\includegraphics[width=12cm]{../pics/odoo-tagline}
+		\caption{\url{https://www.odoo.com} (\cite{odoosa})}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{A Short Introduction to Odoo}
+	\framesubtitle{Value Proposition}
+	\begin{figure}	
+		\centering
+		\includegraphics[width=12cm]{../pics/odoo-unique-value-prop}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{A Short Introduction to Odoo}
+	\framesubtitle{\emph{Great User Experience Award} and the \emph{2017 Rising Star}}
+	\begin{figure}	
+		\centering
+		\includegraphics[width=12cm]{../pics/odoo-awards2017}
+		\caption{\href{https://www.odoo.com/blog/odoo-news-5/post/odoo-wins-two-prestigious-erp-software-awards-from-financesonline-362}{Odoo News April 2017}}
+	\end{figure}
+}
+
+
+% --------------------- Why Customers choose Odoo --------------------------
+\subsection{Why entrepreneurs love Odoo}
+\frame{
+	\frametitle{Why entrepreneurs love Odoo}
+	\framesubtitle{}
+	\centering
+	\Huge{Odoo is better, faster, cheaper}
+}
+
+\frame{
+	\frametitle{Why entrepreneurs love Odoo}
+	\framesubtitle{Better, Faster, Cheaper}
+	\begin{figure}	
+		\centering
+		\includegraphics[width=11.5cm]{../pics/odoo-vs-sfdc-ux}
+		\caption{Better UX can also be 5x cheaper, see \href{https://www.odoo.com/page/compare-odoo-vs-salesforce}{Odoo vs. Saleforce}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Why entrepreneurs love Odoo}
+	\framesubtitle{In a few words}
+	\begin{itemize}
+		\item Beautiful
+			\\{\tiny (User Experience $\rightarrow$ Employee Engagement, retention, self-learning...)}
+		\pause
+		\item Simple and Easy to use (and to learn)
+		\pause
+		\item Cheap for beta-testing 
+			\\{\tiny (Open Source version is always \$0)}
+		\pause
+		\item Cheap for running a full business
+			\\{\tiny (Odoo online: one app = \$0 regardless of the number of users; Odoo enterprise: fixed-price ``buffet'')}
+		\pause
+		\item Extensible (Official apps + thousands of open source apps)
+		\pause
+		\item Odoo Community in Toronto and Montreal, and the world
+		\pause
+		\item Beautiful
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Why entrepreneurs love Odoo}
+	\framesubtitle{10,000 Apps available}
+	\begin{itemize}[<+->]
+		\item 10,000 integrated apps only after 2 years the Appstore exists
+		\item 12 new apps released every day
+		\item Every month, 80,000 apps are downloaded by Odoo users
+		\item 86\% of the apps are open source! 
+		\item Read the \href{https://www.odoo.com/blog/odoo-news-5/post/10000-apps-in-the-odoo-app-store-352}{Announcement}
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Why entrepreneurs love Odoo}
+	\framesubtitle{Thousands of free apps curated by the Odoo Communication Association (OCA)}
+	\begin{figure}	
+		\centering
+		\includegraphics[height=6cm]{../pics/odoo-OCA-apps}
+		\caption{See the \href{https://www.odoo.com/apps/modules?author=Odoo\%20Community\%20Association\%20(OCA)}{OCA section on Odoo.com} and \url{https://github.com/OCA} (\cite{ocagithub,ocaappsonodoo})}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Why entrepreneurs love Odoo}
+	\framesubtitle{Thousands of Open Source modules in developer-friendly format}
+	\begin{figure}	
+		\centering
+		\includegraphics[height=6cm]{../pics/odoo-pypi}
+	\end{figure}
+}
+
+
+% --------------------- Why Developers love Odoo --------------------------
+\subsection{Why developers love Odoo}
+\frame{
+	\frametitle{Odoo is an Operating System for Small Business}
+	\framesubtitle{}
+	\centering
+	\Huge{Odoo is a platform to build and grow your business}
+}
+
+\frame{
+	\frametitle{Why developers love Odoo}
+	\framesubtitle{Because it is easy to create Apps (even for beginners)}
+	\begin{figure}	
+		\centering
+		\includegraphics[width=12cm]{../pics/odoo-studio-saas14}
+		\caption{\href{https://www.youtube.com/watch?v=xCvFZrrQq7k}{Odoo ``Studio''} is available on the Enterprise and Online versions}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Why developers love Odoo}
+	\framesubtitle{Because they love Python}
+	\begin{figure}	
+		\centering
+		\includegraphics[height=6cm]{../pics/tiobe-index-201705}
+		\caption{The \href{https://www.tiobe.com/tiobe-index/}{TIOBE index} shows Python's popularity thrives after 25+ years of existence}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Why entrepreneurs love Odoo}
+	\framesubtitle{Because they rely on the Odoo Communication Association (OCA)}
+	\begin{figure}	
+		\centering
+		\includegraphics[width=12cm]{../pics/odoo-OCA}
+		\caption{\url{https://odoo-community.org} (\cite{oca})}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Why entrepreneurs love Odoo}
+	\framesubtitle{Because they can use and learn from thousands of Odoo Communication Association (OCA) Apps}
+	\begin{figure}	
+		\centering
+		\includegraphics[height=6cm]{../pics/odoo-OCA-apps}
+		\caption{See the \href{https://www.odoo.com/apps/modules?author=Odoo\%20Community\%20Association\%20(OCA)}{OCA section on Odoo.com} and \url{https://github.com/OCA} (\cite{ocagithub,ocaappsonodoo})}
+	\end{figure}
+}
+
+% --------------------- How does Odoo make money, and is it sustainable? --------------------------
+\subsection{Why managers love Odoo}
+\frame{
+	\frametitle{Why managers love Odoo}
+	\framesubtitle{Because Odoo is growing faster than Salesforce}
+	\begin{figure}	
+		\centering
+		\includegraphics[width=12cm]{../pics/odoo-revenue-growth}
+		\caption{More information at \url{http://bit.ly/2pnexIa} --tweeted by Fabien Pinckaers (@fpodoo) April 14, 2017}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Why managers love Odoo}
+	\framesubtitle{Because Odoo is growing faster than Salesforce}
+	\begin{figure}	
+		\centering
+		\includegraphics[height=6cm]{../pics/sfdc-revenue-growth}
+		\caption{More information at \href{https://marketrealist.imgix.net/uploads/2016/11/salesforce-revenue-growth.png?w=660&fit=max&auto=format}{Market Realist} (November 2016)}
+	\end{figure}
+}
+
+% ======================================================================================================
+%                                     Odoo Versions
+% ======================================================================================================
+\section{Versions of Odoo}
+\frame{
+	\frametitle{Versions of Odoo}
+	\framesubtitle{Opencore Model}
+	\begin{itemize}[<+->]
+		\item Odoo Community
+			\\{\tiny$\surd$ Open Source, Free, Forever}
+		\item Odoo Enterprise
+			\\{\tiny$\surd$ added-value Enterprise Modules, run by the Odoo customer, better choice for large and complex deployments}
+		\item Odoo Online (aka SaaS)
+			\\{\tiny$\surd$ added-value Enterprise Modules, run by Odoo SA, free support, low TCO, less flexibility}
+		\item Developer version
+			\\{\tiny$\surd$ covered in the workshop portion}
+		\item See \url{https://www.odoo.com/pricing} 
+			\\and \url{https://www.odoo.com/page/editions} for more details
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Getting started with Odoo}
+	\framesubtitle{Pick your deal}
+	\begin{figure}	
+		\centering
+		\includegraphics[height=6cm]{../pics/odoo-pricing}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Try different versions of Odoo}
+	\begin{figure}
+		\centering
+		\includegraphics[width=12cm]{../pics/odoo-runbot}
+		\caption{\url{http://runbot.odoo.com/runbot}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{The future of Odoo}
+	\begin{figure}
+		\centering
+		\includegraphics[width=12cm]{../pics/odoo-vision2020}
+		\caption{\url{https://www.youtube.com/watch?v=v8eumtr3X1Q}}
+	\end{figure}
+	\begin{figure}
+		\centering
+		\includegraphics[width=12cm]{../pics/odoo-odoo10keynote}
+		\caption{\url{https://www.youtube.com/watch?v=TMno_mDkBRE}}
+	\end{figure}
+}
+
+% ======================================================================================================
+%                                     Where to Find Odoo Training
+% ======================================================================================================
+\section{Additional Odoo Training}
+\frame{
+	\frametitle{Odoo Training}
+	\framesubtitle{Pick a career path}
+	\begin{itemize}[<+->]
+		\item Functional Training
+		\item Technical Training
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Odoo Training}
+	\framesubtitle{Courses on Udemy}
+	\begin{figure}	
+		\centering
+		\includegraphics[width=12cm]{../pics/udemy-sample-odoo-courses}
+		\caption{\tiny \url{https://www.udemy.com/odoo-technical/}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Odoo Training}
+	\framesubtitle{Books on O'Reilly Safari (there is plenty)}
+	\begin{figure}	
+		\centering
+		\includegraphics[width=12cm]{../pics/odoo-safari}
+		\caption{\href{http://my.safaribooksonline.com/}{O'Reilly Safari} is freely accessible with a Toronto Public Library Card (\cite{oreillysafari})}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Odoo Training}
+	\framesubtitle{from Odoo S.A.}
+	\begin{figure}
+		\centering
+		\includegraphics[width=12cm]{../pics/odoosatraining}
+		\caption{\href{https://odoo.thinkific.com/courses/odoo-functional}{Free trial (\cite{odoosatraining})}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Odoo Training}
+	\framesubtitle{ERP Courses on \href{http://edx.org}{edX}}
+	\begin{figure}	
+		\centering
+		\includegraphics[height=6cm]{../pics/edx-ERP-courses}
+		\caption{Top courses available at \href{http://edx.org}{edX}}
+	\end{figure}
+}
+
+% ~ ~ ~ References
+% ======================================================================================================
+%                                     References
+% ======================================================================================================
+\section{References}
+\frame[allowframebreaks]{
+	\frametitle{Odoo: the course ERP}
+	\framesubtitle{References}
+	% keyword refers to bib file: references-KEYWORD.bib, and to the Tex file: section-KEYWORD.tex
+	\printbibliography[keyword=odoo-course-erp]
+}
+
+\end{document}
+
