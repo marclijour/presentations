@@ -1,0 +1,56 @@
+body { font-family: Ubuntu;}
+
+#slide-number-1 { 
+	background-image: url("./pics/sfl-background-blue.png"); background-size: cover; 
+	color: white;
+}
+
+#slide-number-1 h1 {	
+	font-size: 2em; /* 40px/16=2.5em */
+	display: block; margin: auto; position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 20em; height: 3em; text-align: center;
+}
+
+#slide-number-1 h2 {
+	font-size: 1.2em; /* 30px/16=1.875em */
+	font-style: italic;
+	font-weight: normal;
+	display: block; margin: auto; position: absolute; top: 7em; bottom: 0; left: 0; right: 0; width: 20em; height: 3em; text-align: center; 
+}
+
+#slide-number-1 h3 {
+	font-size: 1.2em; /* 30px/16=1.875em */
+	/*font-style: italic;*/
+	font-weight: normal;
+	display: block; margin: auto; position: absolute; top: 20em; bottom: 0; left: 0; right: 0; width: 20em; height: 3em; text-align: center; 
+}
+
+#slide-number-1 h4 {	
+	color: white;
+	font-size: .5em; 
+	font-style: italic;
+	font-weight: normal;
+	display: block; margin: auto; position: absolute; bottom: 1em; left: 0; right: 0; width: 70em; text-align: center; 
+}
+
+#slide-number-1 img[alt~="SFL"] { position: absolute; top: -40%; bottom: 0; ; right: 0; left: 0; width: 15%;  margin: auto;}
+#slide-number-1 img[alt~="CC"] { position: absolute; bottom: 5%; ; right: 3%; width: 10%; }
+
+#slide-number-1 .remark-slide-number { 
+	visibility: hidden;
+}
+
+.remark-slide-content:not(#slide-number-1) h1 { color: rgb(86,176,201); padding-bottom: .2em; border-bottom: 1px lightgray solid; }
+.remark-slide-content:not(#slide-number-1) h2 { color: rgb(86,176,201); padding-bottom: .2em; font-size: 1.2em; font-style: italic; margin-top: -1.2em; }
+
+.remark-slide-content:not(#slide-number-1) {
+	background-image: url("./pics/logo-sfl-250.png");
+	background-position: top 3em right 4em;
+	background-size: 10% 10%; 
+}
+
+.red {color: red; } 
+
+.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+
+
+
