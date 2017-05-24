@@ -37,6 +37,11 @@ odoo-course-ERP:
 	biber ../odoo-course-ERP
 	pdflatex -output-directory .. odoo-course-ERP
 
+meetup-odoo-intro:
+	pdflatex -output-directory .. meetup-odoo-intro
+	biber ../meetup-odoo-intro
+	pdflatex -output-directory .. meetup-odoo-intro
+
 view:
 	xreader ${target}.pdf &
 
