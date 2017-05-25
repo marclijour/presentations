@@ -22,7 +22,75 @@ name: number-1
 - Any Linux flavour is good (the demo is based on Ubuntu 16.04)
 
 ---
-# A Two-Step Process
+# Setting up a VM 
+Using [OVH](https://www.ovh.com/ca/en/) as an example. I picked a small [Virtual Private Server (VPS)](https://www.ovh.com/ca/en/vps/vps-ssd.xml) for about $5.
+
+![OVH-VPS-OPTIONS](./pics/ovh-vps-options.png)
+
+---
+# Ordering a Ubuntu 16.04 64-bit machine
+
+![OVH-Order](./pics/ovh-vps-ordering.png)
+
+---
+# Reviewing the order
+
+![OVH-Order-Preview](./pics/ovh-order-preview.png)
+
+---
+# Configuring SSH and shortcuts 
+```bash
+$ cat /etc/hosts | grep odoo-demo
+1.2.3.4 	odoo-demo
+```
+
+```bash
+$ cat >> ~/.ssh/config 
+Host odoo-demo
+	User root
+	Hostname vps1234567.vps.ovh.ca
+```
+
+---
+# Login via SSH
+```bash
+ssh odoo-demo
+```
+OVH will have sent you the password.
+
+---
+# Disabling login authentication via password 
+This is more secure.
+
+From your local machine
+
+```bash
+$ scp ~/.ssh/id_rsa.pub root@odoo-demo:/root/
+```
+
+On the remote machine
+
+```bash
+# cat id_rsa.pub >> .ssh/authorized_keys 
+```
+
+Then edit **/etc/ssh/sshd_config** to change to 
+
+```bash 
+PasswordAuthentication no
+```
+
+Now you can login directly with ssh, no password.
+
+---
+# Update Ubuntu
+```bash
+apt-get update
+apt-get upgrade
+```
+
+---
+# A Two-Step Process Installation
 
 1. Installing a database (PostgreSQL is the only supported product)
 1. Installing the Odoo software
@@ -82,68 +150,6 @@ Slides notes here
 # Limitations of this installation
 - Community version vs. Enterprise (added features)
 - Not production ready (no domain name, no SSL, limited scalability, no security...)
-
----
-# Anatomy of a 3-tier app
-![nginx](./pics/odoo-nginx.png)
-
----
-# Add nginx as a proxy
-First install nginx:
-```bash
-sudo apt-get install nginx
-```
-Then download and install the configuration file for nginx, to let it know what to do. Move it to /etc/nginx/sites-available and make a soft link to /etc/nginx/sites-enabled. Restart the nginx server or at least tell it to reload its configuration after testing the parameters.
-```bash
-nginx -t
-sudo service nginx reload
-```
-
----
-# Create a SSL certificate
-```bash
-sudo su -
-mkdir -p /etc/nginx/ssl
-cd /etc/nginx/ssl
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/odoo.key -out /etc/nginx/ssl/odoo.crt
-chmod 600 odoo.key
-```
-Reload after testing the nginx configuration files.
-```bash
-nginx -t
-sudo service nginx reload
-```
-
----
-# Get a domain name
-For the sake of the example, we'll just create an alias ("odoo.mysite.co") in the hosts file.
-
-Try http://odoo.mysite.co and  https://odoo.mysite.co
-
----
-# A simple firewall
-The Universal firewall in Linux is very easy to use.
-
-```bash
-sudo ufw allow 80
-sudo ufw allow ssh
-sudo ufw allow https
-sudo ufw enable
-sudo ufw status verbose
-sudo ufw disable
-```
----
-# More serious security
-- Always use SSH
-- Consider a VPN
-- You can get your free SSL certificate (validated) at https://letsencrypt.org (or pay for it at your regular domain name reseller)
-- Check [snort](https://www.snort.org/)
-- Check [OSSEC](https://ossec.github.io/)
-- Check [Suricata](https://suricata-ids.org/)
-- Check [Nagios](https://www.nagios.org/)
-- Check nmap
-- Check Kali Linux, HURD
-- Check Truecrypt
 
 ---
 # Q&As
