@@ -42,6 +42,11 @@ meetup-odoo-intro:
 	biber ../meetup-odoo-intro
 	pdflatex -output-directory .. meetup-odoo-intro
 
+meetup-odoo-20170628:
+	pdflatex -output-directory .. meetup-odoo-20170628
+	biber ../meetup-odoo-20170628
+	pdflatex -output-directory .. meetup-odoo-20170628
+
 view:
 	xreader ${target}.pdf &
 

@@ -1,0 +1,42 @@
+% (C) Marc Lijour, 2017 
+% Licensed under a Creative Commons License BY-SA
+% https://creativecommons.org/licenses/by-sa/2.5/ca/
+% Presentation for Mexican High School Students studying in Toronto 
+% authored by Marc Lijour, July 2017
+% 
+% Variables
+% TODO set the variables
+% ---------------------- USER-DEFINED --------------------------------
+\newcommand{\SFLtitle}{Emerging~Tech}
+\newcommand{\SFLlongtitle}{Opportunities in Technology}
+\newcommand{\SFLsubtitle}{An introduction to AI, Blockchain, and Emerging Technologies}
+\newcommand{\SFLauthor}{Marc~Lijour}
+\newcommand{\SFLdate}{July~17, 2017}
+\newcommand{\SFLsubject}{Emerging~Tech}
+% --------------------------------------------------------------------
+% Template
+\input{../../Savoir-faire_Linux-LaTeX_Templates/sfl-presentation-template-blue-EN-with-CC-BY-SA}
+% Extra packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+% Use one bib file per section
+\addbibresource{references.bib}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+% Start of the document
+\begin{document}
+% Cover page
+% Do not use this: \frame{\titlepage}
+% use this instead:
+\SFLcoverpage
+
+% Content
+\input{presentation-content}
+\input{intro-sfl}
+\frame{\centering\Large{Thank you!}}
+\end{document}
+
