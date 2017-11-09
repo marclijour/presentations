@@ -1,0 +1,89 @@
+% (C) Marc Lijour, 2017
+% This document is licensed under a Creative Commons License BY-SA (feel free to use the code, but all rights are reserved for logos and art)
+% https://creativecommons.org/licenses/by-sa/2.5/ca/
+% ICTC presentation template in LaTeX
+% This template comes with a first page on a picture background
+% Possible improvement in future iterations
+% - Test and fix as needed to work on xetex (to use Ubuntu fonts)
+% === USAGE===
+% Create a file for your LaTeX content (slides, etc), in which you must do the following:
+% TODO 1 - set variables defined below
+% TODO 2 - include this code by calling: \input{<the name of this document>}
+% TODO 3 - Start the document as usual and you're in business; just use \begin{document} and don't forget to conclude with \end{document}
+% TODO 4 - Use the custom method \ICTCcoverpage instead of \titlepage to create your cover page
+% Voilà!
+%
+\documentclass[utf8]{beamer}
+\usepackage{etoolbox}
+%\usepackage[american,french]{babel}
+%\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+% Variables
+% ---------------------- USER-DEFINED --------------------------------
+\ifdef{\ICTCtitle}{}{\newcommand{\ICTCtitle}{\color{red}Title TBD}}
+\ifdef{\ICTClongtitle}{}{\newcommand{\ICTClongtitle}{\color{red}Long title TBD}}
+\ifdef{\ICTCsubtitle}{}{\newcommand{\ICTCsubtitle}{\color{red}Subtitle TBD}}
+\ifdef{\ICTCauthor}{}{\newcommand{\ICTCauthor}{\color{red}Author TBD}}
+\ifdef{\ICTCdate}{}{\newcommand{\ICTCdate}{\color{red}Date TBD}}
+\ifdef{\ICTCsubject}{}{\newcommand{\ICTCsubject}{\color{red}Subject TBD}}
+% --------------------------------------------------------------------
+\usetheme{Boadilla}
+% Set color close to ICTC paletter
+\definecolor{beamer@blendedblue}{RGB}{220,0,66}
+% Cover Page
+\title[\ICTCtitle] {\ICTClongtitle}
+\subtitle{\ICTCsubtitle}
+\author{\ICTCauthor}
+\date{\ICTCdate}
+\subject{\ICTCsubject}
+\usepackage{tikz}
+% Try Xetex to use system fonts (pdflatex makes it hard to import a font)
+%\usepackage{fontspec}
+%\setsansfont{Ubuntu}
+%\setmonofont{Ubuntu Mono}
+
+% -- create a custom (command) title page -which has the benefit of not affecting the settings for the rest of the presentation
+\newcommand{\ICTCcoverpage}{\frame[plain]{
+	\tikz[remember picture,overlay] {
+        	\node(bkgd) at ([xshift=0cm,yshift=0cm]current page.center) 
+			{\includegraphics[width=\paperwidth, height=\paperheight]{../../ICTC-LaTeX_Templates/images/ictc-canada}};
+        	\node(logo) at ([xshift=0cm,yshift=1.8cm]current page.center) 
+		 	{\includegraphics[scale=.15]{../../ICTC-LaTeX_Templates/images/ICTC-logo-TM-NN-medium_400x400-transparent-whiteletters}};
+	}
+	\tikz[remember picture,overlay] {
+        	\node(title) at ([xshift=0cm,yshift=0cm]current page.center) 
+			{\Large\color{white}\textbf{{\ICTClongtitle}}};
+        	\node(subtitle) at ([xshift=0cm,yshift=-.7cm]current page.center) 
+			{\small\color{white}\emph{\ICTCsubtitle}};
+        	\node(author) at ([xshift=0cm,yshift=-2cm]current page.center) 
+			{\small\color{white}By~\ICTCauthor};
+        	\node(date) at ([xshift=0cm,yshift=-2.5cm]current page.center) 
+			{\tiny\color{white}\ICTCdate};
+        	\node(footnote) at ([xshift=0cm,yshift=-4cm]current page.center) 
+			{\TINY\color{white}\emph{The Information and Communications Technology Council (ICTC) is a not-for-profit national centre of expertise}};
+        	\node(footnote) at ([xshift=0cm,yshift=-4.2cm]current page.center) 
+			{\TINY\color{white}\emph{formed to strengthen Canada's digital advantage in a global economy.}};
+    	}
+}}
+%
+% This sets the ICTC logo at the bottom right corner of each page
+\logo{
+	\includegraphics[scale=.1]{../../ICTC-LaTeX_Templates/images/ICTC-logo-TM-NN-medium_400x400-onwhite}
+}
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+%\usepackage{newunicodechar}
+%\usepackage[format=plain,justification=raggedright,singlelinecheck=false]{caption}
+\usepackage[format=plain,justification=justified,singlelinecheck=false]{caption}
+\usepackage{dirtytalk}
+\usepackage{wrapfig}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{mathabx}
+%\usepackage{MnSymbol}
+
