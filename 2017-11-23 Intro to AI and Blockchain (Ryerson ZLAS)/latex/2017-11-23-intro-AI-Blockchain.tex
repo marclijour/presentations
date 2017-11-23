@@ -1,0 +1,48 @@
+% (C) Marc Lijour, 2017 
+% Licensed under a Creative Commons License BY-SA
+% https://creativecommons.org/licenses/by-sa/2.5/ca/
+% Presentation for Ryerson University "Zone Learning Analytics School" (ZLAS) 
+% authored by Marc Lijour, November 2017
+% 
+% Variables
+% TODO set the variables
+% ---------------------- USER-DEFINED --------------------------------
+\newcommand{\ColliderXtitle}{Emerging~Tech}
+\newcommand{\ColliderXlongtitle}{Opportunities in Technology}
+\newcommand{\ColliderXsubtitle}{An introduction to AI, Blockchain, and Emerging Technologies}
+\newcommand{\ColliderXauthor}{Marc~Lijour}
+\newcommand{\ColliderXdate}{November~23, 2017}
+\newcommand{\ColliderXsubject}{Emerging~Tech}
+% --------------------------------------------------------------------
+% Template
+\input{../../ColliderX-LaTeX_Templates/colliderx-presentation-template-EN-with-CC-BY-SA}
+% Extra packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+% Use one bib file per section
+\addbibresource{references.bib}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+\AtBeginBibliography{\footnotesize}
+% Start of the document
+\begin{document}
+% Cover page
+% Do not use this: \frame{\titlepage}
+% use this instead:
+\ColliderXcoverpage
+
+% Content
+\input{presentation-content}
+%\input{intro-colliderx}
+\frame{\centering\Large{Thank you!}}
+\frame{
+	\frametitle{References}
+	% keyword refers to bib file: references-KEYWORD.bib, and to the Tex file: section-KEYWORD.tex  
+	\printbibliography 
+}
+\end{document}
+
