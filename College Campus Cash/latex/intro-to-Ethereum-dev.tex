@@ -1,0 +1,54 @@
+% (C) Marc Lijour, 2017 
+% Licensed under a Creative Commons License BY-SA
+% https://creativecommons.org/licenses/by-sa/2.5/ca/
+% Presentation for Ryerson University "Zone Learning Analytics School" (ZLAS) 
+% authored by Marc Lijour, November 2017
+% 
+% Variables
+% TODO set the variables
+% ---------------------- USER-DEFINED --------------------------------
+\newcommand{\Ayanatitle}{Ethereum~DEV}
+\newcommand{\Ayanalongtitle}{Ethereum Development}
+\newcommand{\Ayanasubtitle}{An introduction to developing Smart Contracts on Ethereum}
+\newcommand{\Ayanaauthor}{Marc~Lijour}
+\newcommand{\Ayanadate}{December~30, 2017}
+\newcommand{\Ayanasubject}{Ethereum~DEV}
+% --------------------------------------------------------------------
+% Template
+\input{../../Ayana_Consulting-LaTeX_Templates/ayana-presentation-template-EN-with-CC-BY-SA.tex}
+% Extra packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+% Use one bib file per section
+\addbibresource{references.bib}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+\AtBeginBibliography{\footnotesize}
+% Start of the document
+\begin{document}
+% Cover page
+% Do not use this: \frame{\titlepage}
+% use this instead:
+\Ayanacoverpage
+
+% Content
+\input{presentation-content}
+\frame{
+	\centering\Large{Thank you!}\\
+	\vspace{2em}
+	{\footnotesize
+		Email: \href{mailto:marc.lijour@ayanaconsulting.net}{marc.lijour@ayanaconsulting.net}\\
+		Twitter: \href{https://twitter.com/marclijour}{@marclijour}
+	}
+}
+\frame{
+	\frametitle{References}
+	% keyword refers to bib file: references-KEYWORD.bib, and to the Tex file: section-KEYWORD.tex  
+	\printbibliography 
+}
+\end{document}
+
