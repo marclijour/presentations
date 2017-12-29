@@ -66,16 +66,13 @@
 
 \frame{
 	\frametitle{Client Types}
-}
-
-\frame{
-	\frametitle{Disk Space}
-	\framesubtitle{With Geth \texttt{--syncmode fast} (default mode)}
-	This mode initializes a $\sim$20~GB database, then turns in full node. 
-	\begin{figure}
-	\includegraphics[height=5.5cm]{../pics/ethereum/etherscan-chaindata-2017-12-27}
-		\caption{Disk space used by Geth (in fast mode) (\cite{etherscan:chaindatasize})}
-	\end{figure}
+	\begin{itemize}
+		\item Full node 
+		\pause
+		\item Light node 
+		\pause
+		\item Something in between (e.g. ``fast'' for geth)
+	\end{itemize}
 }
 
 \frame{
@@ -98,6 +95,16 @@
 
 \frame{
 	\frametitle{Disk Space}
+	\framesubtitle{With Geth \texttt{--syncmode fast} (default mode)}
+	This mode initializes a $\sim$20~GB database, then turns in full node. 
+	\begin{figure}
+	\includegraphics[height=5.5cm]{../pics/ethereum/etherscan-chaindata-2017-12-27}
+		\caption{Disk space used by Geth (in fast mode) (\cite{etherscan:chaindatasize})}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Disk Space}
 	\framesubtitle{Parity allows for continuous state trie pruning}
 	In green, the configuration running as \emph{full node}.\\
 	A light client can fit in $\sim$5~MB.
@@ -107,9 +114,155 @@
 	\end{figure}
 }
 
+% ======================================================================================================
+%                                     Ethereum dev environment
+% ======================================================================================================
+\section{Setting a Development Machine}
+\frame{
+	\frametitle{Assumptions \& Recommendations}
+	1) Ethereum Node, Wallet, Smart Contracts, and Dapps:
+	\begin{itemize}
+		\item Linux machine (Ubuntu 16.04 / Linux Mint 18.x --until April 2021)
+		\item Parity (or Geth) 
+	\end{itemize}
+	\vspace{1em}
+	2) Quick setup, Portable, for Users and Developers on the go:
+	\begin{itemize}
+		\item Chrome browser (or Chromium) --any OS
+		\item Metamask Extension
+		\item \href{https://remix.ethereum.org}{Remix} IDE
+	\end{itemize}
+}
 
 \frame{
-	\frametitle{}
+	\frametitle{Parity}
+	\begin{figure}
+		\includegraphics[height=4cm]{../pics/ethereum/parity-status}
+		\captionsetup{justification=centering}
+		\caption{The \href{https://www.parity.io}{Parity} client syncing}
+	\end{figure}
+	\vspace{-1em}
+	\begin{itemize}
+		\item Typical Account Management, multi-sig, hardware support
+		\item Access Dapps directly (e.g. app to create an ERC-20 token)
+		\item Code editor and Solidity compiler for smart contracts 
+		\item Fast and reliable (written in Rust)
+		\item Most OS, Docker images; and compliant with JSON-RPC API
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Lab~1: set up a full Development Environment}
+	\center\Huge
+	Installing Parity 
+}
+
+\frame{
+	\frametitle{Installing Parity}
+	\begin{figure}
+		\includegraphics[height=3cm]{../pics/ethereum/parity-homepage}
+		\captionsetup{justification=centering}
+		\caption*{\tiny\url{https://www.youtube.com/watch?v=WNT2O6xyDmM} (Windows-based, 16~min)}
+%		\caption*{\url{https://www.youtube.com/watch?v=sta-p5d1blQ} (older, for Windows)}
+	\end{figure}
+	\vspace{-1em}
+	\begin{enumerate}
+		\item Go to \url{https://www.parity.io}
+		\item Download the relevant binaries, e.g. on Linux:
+		\item Check the checksum: \texttt{\$ md5sum parity\_1.7.11\_amd64.deb}
+		\item Install: \texttt{\$ sudo dpkg -i parity\_1.7.11\_amd64.deb}
+		\item Check the version: \texttt{\$ parity -v}
+	\end{enumerate}
+}
+
+\begin{frame}[fragile]
+	\frametitle{Run Parity on the Kovan Testnet}
+	%\frametitle{Run Parity on the \href{https://github.com/kovan-testnet/config}{Kovan Testnet}}
+	\begin{Verbatim}[fontsize=\tiny]
+$ parity --light --testnet
+2017-12-28 23:38:25  Starting Parity/v1.7.11-stable-a5ed4cf-20171228/x86_64-linux-gnu/rustc1.22.1
+2017-12-28 23:38:25  Keys path /home/marc/.local/share/io.parity.ethereum/keys/Kovan
+2017-12-28 23:38:25  DB path /home/marc/.local/share/io.parity.ethereum/chains/kovan/db/9bf388941c25ea98
+2017-12-28 23:38:25  Path to dapps /home/marc/.local/share/io.parity.ethereum/dapps
+2017-12-28 23:38:25  Running in experimental Light Client mode.
+...
+	\end{Verbatim}
+	Then go to \url{http://localhost:8180} (or \url{http://web3.site} if online), and follow the instructions.
+	\begin{itemize}
+		\item After reading the legal terms and conditions, you can create your first account.
+		\item Click on the top left-most logo (yellow bars) to see the status of your node.
+		\item \textbf{It may take 60+ minutes to sync!}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Try running your first Dapp}
+	Follow the tutorial at \url{https://github.com/paritytech/parity/wiki/Tutorial-Part-1}.\\
+	\vspace{1em}
+	On Linux Ubuntu, make sure you have npm, and make a soft link to node before running \texttt{init.sh}:
+	\begin{Verbatim}[fontsize=\tiny]
+$ sudo apt install npm
+$ sudo ln -s /usr/bin/nodejs /usr/bin/node 
+$ ./init.sh
+	\end{Verbatim}	
+\end{frame}
+
+\frame{
+	\frametitle{Lab~1 (b): set up a full Development Environment}
+	\center\Huge
+	Installing Geth 
+}
+
+\begin{frame}[fragile]
+	\frametitle{Installing Geth}
+	Instructions (all OS) at \url{https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum}.
+	\vspace{.5em}
+	\begin{Verbatim}[fontsize=\tiny]
+$ sudo apt-get install software-properties-common
+$ sudo add-apt-repository -y ppa:ethereum/ethereum
+$ sudo apt-get update
+	\end{Verbatim}
+	Run the first line to install the full suite (geth, bootnode, evm, disasm, rlpdump, ethtest), or the second line for geth only:
+	\vspace{.5em}
+	\begin{Verbatim}[fontsize=\tiny]
+$ sudo apt-get install ethereum
+$ sudo apt-get install geth
+	\end{Verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Installing a Solidity Compiler}
+	Provided the previous steps were completed:
+	\vspace{.5em}
+	\begin{Verbatim}[fontsize=\tiny]
+$ sudo apt-get install solc
+$ which solc
+	\end{Verbatim}
+And in geth, to let it know where solc can be found:
+	\vspace{.5em}
+	\begin{Verbatim}[fontsize=\tiny]
+$ admin.setSolc("/usr/bin/solc")
+	\end{Verbatim}
+	Now test the code by following the instructions at \url{https://github.com/ethereum/go-ethereum/wiki/Contract-Tutorial}
+\end{frame}
+
+\frame{
+	\frametitle{And you still need a wallet}
+	\begin{columns}
+	\column{0.5\textwidth}
+		Options:
+		\begin{itemize}
+	%		\item Mist = \href{https://www.reddit.com/r/ethereum/comments/61lzmw/mist_ethereum_wallet_myetherwallet/}{Ethereum Wallet (geth) + Web/Dapp browser} --more info \href{https://github.com/ethereum/mist/wiki}{on GitHub}
+			\item Mist Browser (beta) (featured on the right, see also the \href{https://blog.ethereum.org/2017/12/15/security-alert-chromium-vulnerability-affecting-mist-browser-beta/}{recent security warning re. Chromium})
+			\item \href{https://www.myetherwallet.com}{MyEtherWallet (MEW)} supports advanced features including hardware wallets
+		\end{itemize}
+	\column{0.5\textwidth}
+	\begin{figure}
+		\includegraphics[width=5cm]{../pics/ethereum/mist-browser}
+		\captionsetup{justification=centering}
+		\caption*{Mist Browser (beta)\newline\url{https://wallet.ethereum.org}}
+	\end{figure}
+	\end{columns}
 }
 
 % ======================================================================================================
@@ -117,7 +270,154 @@
 % ======================================================================================================
 \section{Hands-on Smart Contracts}
 \frame{
-	\frametitle{Install Metamask}
-
+	\frametitle{}
+	\centering\Huge
+	Let's have some fun!
 }
+
+\frame{
+	\frametitle{Install MetaMask}
+	\begin{columns}
+	\column{0.6\textwidth}
+		Follow step by step:
+		\begin{enumerate}
+			\item Install the \href{https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn}{Chrome/Chromium extension} 
+			\item Watch the \href{https://www.youtube.com/watch?v=6Gf\_kRE4MJU}{intro on Youtube}
+			\item Create an account 
+			\item Switch to the Ropsten Testnet (top-left in MetaMask) 
+			\item Fill your account with Ether from \url{https://faucet.metamask.io}
+		\end{enumerate}
+	\column{0.4\textwidth}
+		\begin{figure}
+			\includegraphics[width=3cm]{../pics/ethereum/metamask-logo}
+			\captionsetup{justification=centering}
+			\caption*{\url{https://metamask.io}}
+		\end{figure}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{Create your own (ERC-20) token}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/token-factory-create}
+	\end{figure}
+	\vspace{-1em}
+	\begin{enumerate}
+		\item Use the Token Factory Dapp at \url{https://tokenfactory.surge.sh/\#/factory}
+		\item MetaMask will pop up (see picture above)
+		\item Submit the transaction (on the Ropsten Testnet)
+		\item Check your transaction on \url{https://ropsten.etherscan.io} 
+	\end{enumerate}
+}
+
+\frame{
+	\frametitle{Check your Smart Contract}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/metamask-contract-published}
+	\end{figure}
+	\vspace{-1em}
+	\begin{enumerate}
+		\item Select the ``Sent'' tab
+		\item Check the orange Copy icon (Tx Hash) 
+		\item Click on ``Contract Published''
+		\item That should bring you to Etherscan (see next page)
+	\end{enumerate}
+}
+
+\frame{
+	\frametitle{Verify the status of your transaction on Etherscan}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/etherscan-contract}
+		\captionsetup{justification=centering}
+		\caption*{Transaction Information: note the ``To'' line with your contract address}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Watch your Token}
+	\begin{columns}
+	\column{0.5\textwidth}
+		\begin{figure}
+			\includegraphics[width=3cm]{../pics/ethereum/metamask-add-token-1}
+		\end{figure}
+	\column{0.5\textwidth}
+		\begin{figure}
+			\includegraphics[width=3cm]{../pics/ethereum/metamask-add-token-2}
+		\end{figure}
+	\end{columns}
+	\begin{enumerate}
+		\item Click on the ``Add Token'' button
+		\item Wait for the next window (picture on the right)
+		\item Copy your contract address (from Etherscan)
+		\item Go back to your Token Factory tab, which should show an UI to interact with your contract or go to the URL: https://tokenfactory.surge.sh/\#/token/0x... (replace 0x... by your contract address)
+		\item Move coins around
+		\item In MetaMask, click on your token to check the tx on Etherscan 
+	\end{enumerate}
+}
+
+\frame{
+	\frametitle{}
+	\centering\Huge
+	Too easy?\\
+	\vspace{2em}
+	Let's code it in Solidity\\like the pros!
+}
+
+\frame{
+	\frametitle{Coding your first ERC-20 Smart Contract}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/remix-home}
+	\end{figure}
+	\begin{enumerate}
+		\item Open the Remix IDE at \url{ https://remix.ethereum.org}
+		\item Close the ballot file 
+		\item Create a new file named TokenRecipient.sol 
+		\item Copy the code from \url{https://ethereum.org/token} (second white box, under ``The Code'', starting with ``pragma'')
+		\item Switch to the ``Run'' tab (top-right bar, after Compile)
+	\end{enumerate}
+	Reference:\\
+	\href{https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md}{ERC-20 Token Standard}
+}
+
+\frame{
+	\frametitle{Compiling Successfully}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/remix-compiling-ERC20}
+	\end{figure}
+	\begin{enumerate}
+		\item Two green boxes should show on the right 
+		\item TokenERC20 is the name of the contract (class)
+		\item tokenRecipient is the name of the interface
+		\item Switch to the ``Run'' tab (top right)
+	\end{enumerate}
+}
+
+\frame{
+	\frametitle{Submitting the Smart Contract}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/remix-creating-ERC20}
+	\end{figure}
+	\begin{enumerate}
+		\item Under the dropdown showing ``TokenERC20'', add a number (total amount of tokens to issue) and two strings (the latter is the token symbol)
+		\item Add enough gas (top right, try 30)
+		\item Click Create and check whether MetaMask needs confirmation
+	\end{enumerate}
+}
+\frame{
+	\frametitle{Interacting with the contract}
+	\begin{columns}
+	\column{0.4\textwidth}
+		\begin{enumerate}
+			\item A new interface will pop up on the bottom right corner of the IDE
+		\end{enumerate}
+	\column{0.6\textwidth}
+		\begin{figure}
+			\includegraphics[height=7cm]{../pics/ethereum/remix-ERC20-interact}
+		\end{figure}
+	\end{columns}
+}
+
+%\frame{
+%	\frametitle{}
+%}
 
