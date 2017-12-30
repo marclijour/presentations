@@ -426,7 +426,144 @@ $ admin.setSolc("/usr/bin/solc")
 	\end{columns}
 }
 
+\frame{
+	\frametitle{}
+	\centering\Huge
+	Let's create our own permission-based private Blockchain\\
+	based on Ethereum!
+}
+
+\frame{
+	\frametitle{Create a PoA chain with Parity}
+	\begin{itemize}
+		\item PoA: \href{https://github.com/paritytech/parity/wiki/Proof-of-Authority-Chains}{Proof of Authority}
+		\pause
+		\item PoA is another type of consensus algorithm (not PoW), with no mining required
+		\pause
+		\item Less computationally intensive, more secure for small networks, faster
+		\pause
+		\item The Kovan test network, Hyperledger and Ripple run on a PoA 
+		\item Parity supports two PoA consensus algorithm: Aura, and Tendermint (experimental)
+		\pause
+		\item Let's follow \href{https://github.com/paritytech/parity/wiki/Proof-of-Authority-Chains}{Parity's Demo PoA tutorial}
+		\item Simple Hands-on at \url{https://github.com/marclijour/parity-poa-tutorial}
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Parity's Demo PoA tutorial}
+	Objectives:
+	\begin{enumerate}
+		\item Setup two connected nodes on one machine (for demo)
+		\item Gain familiarity with Parity (UI and command line)
+		\item Gain a better understanding of diverse types of blockchain (public/private, permissionless/permission-based) and different types of consensus algorithms
+	\end{enumerate}
+}
+
+\frame{
+	\frametitle{Parity's Demo PoA tutorial}
+	\framesubtitle{Step 1: download the files}
+	This \href{https://github.com/marclijour/parity-poa-tutorial}{tutorial} assumes than you have installed Parity. Instructions are shown for a machine running Linux Ubuntu. The first step consists in cloning the GitHub repo in your machine. You'll run command from within that directory.\\
+	\vspace{2em}
+	\tiny\texttt{\$ git clone https://github.com/marclijour/parity-poa-tutorial.git}
+}
+
+\begin{frame}[fragile]
+	\frametitle{Parity's Demo PoA tutorial}
+	\framesubtitle{Step 2: create nodes and accounts}
+	From the ``parity-poa-tutorial'' directory, open two terminals and type one line in each:
+	\vspace{0.5em}
+	\begin{Verbatim}[fontsize=\tiny]
+$ parity --config node0.starthere
+$ parity --config node1.starthere
+	\end{Verbatim}
+	\vspace{0.5em}
+	Open another console and run these scripts:
+	\begin{Verbatim}[fontsize=\tiny]
+$ ./create_first_authority_address_on_node0.sh
+$ ./create_second_authority_address_on_node1.sh
+$ ./create_user__address_on_node0.sh 
+	\end{Verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Parity's Demo PoA tutorial}
+	\framesubtitle{Step 3: start the chain on PoA}
+	In two separate terminals, restart parity with this new configuration.
+	\begin{Verbatim}[fontsize=\tiny]
+$ parity --config node0.toml
+$ parity --config node1.toml
+	\end{Verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Parity's Demo PoA tutorial -- Step 4: setup the Parity UI}
+	Open two different windows or tabs in your browser for node 0 (at \url{http://localhost:8180}) and node 1 (at \url{http://localhost:8181}).
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/parity-poa-tutorial/node0-two-accounts}
+	\end{figure}
+	Restore the accounts as above:\\
+	- on node~0: \texttt{node0} (password = node0), and \texttt{user} (password = user)\\
+	- on node~1: \texttt{node1} (password = node1)
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Parity's Demo PoA tutorial}
+	\framesubtitle{Step 4: connect the nodes with each other}
+	Check the console were you started node 0, and look for the Public Node URL. It should ressemble something like this: \texttt{enode://<long hash>@<IP Address>:<Port Number>}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/parity-poa-tutorial/parity-poa-network-peers}
+	\end{figure}
+	Go to the Status tab (the leftmost tab) in the Web UI for node 1, and look for the Network Peers section. Click on ADD RESERVED, and copy the URL (including enode://).
+	\begin{figure}
+		\includegraphics[width=7cm]{../pics/ethereum/parity-poa-tutorial/parity-poa-connected-peers}
+	\end{figure}
+	Check the console output and the Web UI. Both should acknowledged another peer (1/25 Peers instead of 0/25 Peers).
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Parity's Demo PoA tutorial}
+	\framesubtitle{Step 5: send transactions}
+	Run the following scripts and watch the balance for each account in the Web UIs.
+	\begin{Verbatim}[fontsize=\tiny]
+$ send_from_user_to_node0_account.sh
+$ send_from_user_to_node1_account.sh
+	\end{Verbatim}
+	You can also try in a separate console, where you can read the JSON-formatted response.
+	\begin{Verbatim}[fontsize=\tiny]
+$check_balance_in_node0_account.sh
+$check_balance_in_node1_account.sh
+	\end{Verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Parity's Demo PoA tutorial}
+	\framesubtitle{Step 6: add nodes to the network}
+	Run parity with the right chain specification and let other nodes know (by adding them by enode URL). You just need the demo-spec.json file to get started.
+	\begin{Verbatim}[fontsize=\tiny]
+$ parity --chain demo-spec.json
+	\end{Verbatim}
+\end{frame}
+
 %\frame{
 %	\frametitle{}
 %}
+
+\frame{
+	\frametitle{}
+	\centering\Huge
+	It's the beginning of a\\
+	rewarding journey...
+}
+
+\frame{
+	\frametitle{Next Steps and Recommended Readings}
+	\begin{itemize}
+		\item Starting on Blockchain: \href{https://github.com/marclijour/docs/blob/master/Blockchain/learning.md}{key learning resources}
+		\item \href{https://github.com/paritytech/parity/wiki}{Parity Wiki} (e.g. \href{https://github.com/paritytech/parity/wiki/Token-Deployment}{Token Deployment})
+		\item \href{https://github.com/ethereum/wiki/wiki/White-Paper}{Ethereum White Paper} and \href{https://github.com/ethereum/wiki/wiki}{Wiki}
+		\item MOOCs: Udemy (Solidity), edX (Hyperledger)
+		\item \href{https://www.amazon.ca/Building-Blockchain-Projects-decentralized-applications-ebook/dp/B01M0DMDDG/ref=sr\_1\_1}{Building Blockchain Projects: Building decentralized Blockchain applications with Ethereum and Solidity} by Narayan Prusty (2017) \emph{--check the section on Proof of Authority (PoA)}
+	\end{itemize}
+}
 
