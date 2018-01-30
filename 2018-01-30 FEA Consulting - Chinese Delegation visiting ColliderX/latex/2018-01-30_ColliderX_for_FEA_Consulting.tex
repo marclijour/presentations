@@ -1,0 +1,57 @@
+% (C) Marc Lijour, 2018 
+% Licensed under a Creative Commons License BY-SA
+% https://creativecommons.org/licenses/by-sa/2.5/ca/
+% Presentation for FEA Consulting
+%       Toronto: Jan 30, 2018 at 9 am
+%	ConsenSys Office
+% authored by Marc Lijour, January 2018
+% 
+% Variables
+% TODO set the variables
+% ---------------------- USER-DEFINED --------------------------------
+\newcommand{\ColliderXtitle}{ColliderX}
+\newcommand{\ColliderXlongtitle}{Funding Free Blockchain Software projects}
+\newcommand{\ColliderXsubtitle}{A novel way to fund the digital commons}
+\newcommand{\ColliderXauthor}{Marc~Lijour}
+\newcommand{\ColliderXdate}{January 30, 2018}
+\newcommand{\ColliderXsubject}{ColliderX}
+% --------------------------------------------------------------------
+% Template
+\input{../../ColliderX-LaTeX_Templates/colliderx-presentation-template-EN-with-CC-BY-SA}
+% Extra packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+% Use one bib file per section
+\addbibresource{references.bib}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+\AtBeginBibliography{\footnotesize}
+% Start of the document
+\begin{document}
+% Cover page
+% Do not use this: \frame{\titlepage}
+% use this instead:
+\ColliderXcoverpage
+
+% Content
+\input{presentation-content}
+%\input{intro-colliderx}
+\frame{
+	\centering\Large{Thank you!}\\
+	\vspace{2em}
+	{\footnotesize
+		Email: \href{mailto:marc@collider-x.org}{marc@collider-x.org}\\
+		Twitter: \href{https://twitter.com/marclijour}{@marclijour}
+	}
+}
+\frame{
+	\frametitle{References}
+	% keyword refers to bib file: references-KEYWORD.bib, and to the Tex file: section-KEYWORD.tex  
+	\printbibliography 
+}
+\end{document}
+
