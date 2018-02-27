@@ -23,7 +23,12 @@
 \frame{
 	\frametitle{Access these slides}
 	\center\Huge 
-	\url{}
+	\url{http://bit.ly/2CKK5x3}\\
+	\vspace{2em}
+	{\Large 
+		or find by date:\\
+		\url{https://github.com/marclijour/presentations}
+	}
 }
 
 % 
@@ -239,13 +244,14 @@ $ parity --light --testnet
 	\begin{itemize}
 		\item After reading the legal terms and conditions, you can create your first account.
 		\item Click on the top left-most logo (yellow bars) to see the status of your node.
-		\item \textbf{It may take 60+ minutes to sync!}
+		\item \textbf{It may take days to sync!}
 	\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
 	\frametitle{Try running your first Dapp}
-	Follow the tutorial at \url{https://github.com/paritytech/parity/wiki/Tutorial-Part-1}.\\
+	%Follow the tutorial at \url{https://github.com/paritytech/parity/wiki/Tutorial-Part-1}.\\
+	Follow the tutorial at \url{https://wiki.parity.io/Deploying-Dapps-to-Parity-Wallet} (using chevdor’s dapp generator and yeoman)\\
 	\vspace{1em}
 	On Linux Ubuntu, make sure you have npm, and make a soft link to node before running \texttt{init.sh}:
 	\begin{Verbatim}[fontsize=\tiny]
@@ -263,18 +269,25 @@ $ ./init.sh
 
 \begin{frame}[fragile]
 	\frametitle{Installing Geth}
-	Instructions (all OS) at \url{https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum}.
-	\vspace{.5em}
+	Instructions (all OSes) at {\normalsize\url{https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum}}.\\
+	Ubuntu/Mint: {\normalsize\url{https://github.com/ethereum/go-ethereum/wiki/Installation-Instructions-for-Ubuntu}}\\
+	\vspace{.3em}
 	\begin{Verbatim}[fontsize=\tiny]
 $ sudo apt-get install software-properties-common
 $ sudo add-apt-repository -y ppa:ethereum/ethereum
 $ sudo apt-get update
 	\end{Verbatim}
 	Run the first line to install the full suite (geth, bootnode, evm, disasm, rlpdump, ethtest), or the second line for geth only:
-	\vspace{.5em}
+	\vspace{.3em}
 	\begin{Verbatim}[fontsize=\tiny]
 $ sudo apt-get install ethereum
 $ sudo apt-get install geth
+	\end{Verbatim}
+	Create a new account, and you should be ready to run geth:
+	\vspace{.3em}
+	\begin{Verbatim}[fontsize=\tiny]
+$ geth account new 
+$ geth 
 	\end{Verbatim}
 \end{frame}
 
@@ -295,6 +308,22 @@ $ admin.setSolc("/usr/bin/solc")
 \end{frame}
 
 \frame{
+	\frametitle{Code Editor}
+	\begin{columns}
+	\column{0.3\textwidth}
+	\begin{figure}
+		\includegraphics[width=2cm]{../pics/logos/vim-logo}
+	\end{figure}
+	\column{0.7\textwidth}
+		\begin{itemize}
+			\item Vim 
+			\item Vim Solidity
+			\item Vim Syntastic 
+		\end{itemize}
+	\end{columns}
+}
+
+\frame{
 	\frametitle{And you still need a wallet}
 	\begin{columns}
 	\column{0.5\textwidth}
@@ -308,7 +337,7 @@ $ admin.setSolc("/usr/bin/solc")
 	\begin{figure}
 		\includegraphics[width=5cm]{../pics/ethereum/mist-browser}
 		\captionsetup{justification=centering}
-		\caption*{Mist Browser (beta)\newline\url{https://wallet.ethereum.org}}
+		\caption*{Mist Browser (beta)\newline\url{https://wallet.ethereum.org}\\\textit{Try on Chrome vs Firefox}}
 	\end{figure}
 	\end{columns}
 }
@@ -316,7 +345,7 @@ $ admin.setSolc("/usr/bin/solc")
 % ======================================================================================================
 %                                     Hands-on Introduction to Smart Contracts 
 % ======================================================================================================
-\section{Hands-on Smart Contracts}
+\section{Hands-on Transactions \& Smart Contracts}
 \frame{
 	\frametitle{}
 	\centering\Huge
@@ -342,6 +371,46 @@ $ admin.setSolc("/usr/bin/solc")
 			\caption*{\url{https://metamask.io}}
 		\end{figure}
 	\end{columns}
+}
+
+\frame{
+	\frametitle{Try sending ETH to yourself with Metamask}
+	\begin{enumerate}
+		\item Make sure you're on Ropsten, with some ETH from the faucet
+		\item Click on ``Send'' and fill:
+		\begin{itemize}
+			\item Account: paste your own address (same account)
+			\item Amount: 1 ETH 
+			\item Transaction data: convert some text in HEX format with \url{https://www.asciitohex.com}, remove all spaces and write it with a 0x prefix (e.g. 0x497427732074696d6520746f2072756e)
+		\end{itemize}
+		\item Click on ``Next''
+		\item Use a gas price $>$ 30 (the higher the faster)
+		\item Confirm the transaction
+	\end{enumerate}
+}
+
+\frame{
+	\frametitle{Check the transaction on Etherscan}
+	\framesubtitle{Copy the transaction \#}
+	\begin{figure}
+		\includegraphics[width=5cm]{../pics/ethereum/metamask-copy-tx}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Check the transaction on Etherscan}
+	\framesubtitle{and click on ``Convert to Ascii''}
+	\begin{figure}
+		\includegraphics[width=10.9cm]{../pics/ethereum/etherscan-tx-example}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{A note about gas price}
+	\framesubtitle{\url{https://ethgasstation.info}}
+	\begin{figure}
+		\includegraphics[width=11.5cm]{../pics/ethereum/ethgasstation}
+	\end{figure}
 }
 
 \frame{
@@ -465,8 +534,42 @@ $ admin.setSolc("/usr/bin/solc")
 	\end{columns}
 }
 
+% ======================================================================================================
+%                                     Truffle 
+% ======================================================================================================
+\section{Developing with Truffle}
 \frame{
-	\frametitle{}
+	\frametitle{Required dependency: node.js $>$ 5}
+	Install version 8 --in \href{https://github.com/nodejs/Release\#lts_schedule}{LTS maintenance until December 2019}.\\
+	Run a script from 
+	\url{https://nodejs.org/en/download/package-manager/}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/nodejs-schedule-2018-02}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Installing Truffle}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/truffle}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Let's build our first Dapp with Truffle}
+	\url{http://truffleframework.com/tutorials/pet-shop}
+}
+
+\frame{
+	\frametitle{Let's build an ERC20 Token Contract with Truffle}
+	\url{http://truffleframework.com/tutorials/robust-smart-contracts-with-openzeppelin}
+}
+% ======================================================================================================
+%                                     Private blockchain 
+% ======================================================================================================
+\section{Private blockchain experiment}
+\frame{
+	\frametitle{Private Blockchain}
 	\centering\Huge
 	Let's create our own permission-based private Blockchain\\
 	based on Ethereum!
