@@ -1,0 +1,56 @@
+% (C) Marc Lijour, 2018 
+% Licensed under a Creative Commons License BY-SA
+% https://creativecommons.org/licenses/by-sa/2.5/ca/
+% Technical Workshop for BlockHack , given April 21, 2018
+% Introduction to Blockchain/Decentralized Application Development
+% A primer on Ethereum, on the ConsenSys stack
+% 
+% Variables
+% TODO set the variables
+% ---------------------- USER-DEFINED --------------------------------
+\newcommand{\ConsenSystitle}{ConsenSys}
+\newcommand{\ConsenSyslongtitle}{Intro to ConsenSys and Blockchain Development}
+\newcommand{\ConsenSyssubtitle}{A primer}
+\newcommand{\ConsenSysauthor}{Marc~Lijour}
+\newcommand{\ConsenSysdate}{October~13, 2018}
+\newcommand{\ConsenSyssubject}{ConsenSys}
+% --------------------------------------------------------------------
+% Template
+\input{../../ConsenSys-LaTeX_Templates/ConsenSys-presentation-template-EN-with-CC-BY-SA.tex}
+% Extra packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+% Use one bib file per section
+\addbibresource{references.bib}
+\addbibresource{references-ethereum-history.bib}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+\AtBeginBibliography{\footnotesize}
+% Start of the document
+\begin{document}
+% Cover page
+% Do not use this: \frame{\titlepage}
+% use this instead:
+\ConsenSyscoverpage
+
+% Content
+\input{presentation-content}
+\frame{
+	\centering\Large{Thank you!}\\
+	\vspace{2em}
+	{\footnotesize
+		Email: \href{mailto:marc.lijour@consensys.net}{marc.lijour@consensys.net}\\
+		Twitter: \href{https://twitter.com/marclijour}{@marclijour}
+	}
+}
+\frame{
+	\frametitle{References}
+	% keyword refers to bib file: references-KEYWORD.bib, and to the Tex file: section-KEYWORD.tex  
+	\printbibliography 
+}
+\end{document}
+
