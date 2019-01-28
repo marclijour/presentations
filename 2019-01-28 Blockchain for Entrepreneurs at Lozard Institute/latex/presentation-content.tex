@@ -1,0 +1,635 @@
+% (C) Marc Lijour, 2019 
+% Licensed under a Creative Commons License BY-SA
+% https://creativecommons.org/licenses/by-sa/2.5/ca/
+% Presentation for Entrepreneurs at Denton's organized by the Lozard Institute
+% Hands-on Introduction to Blockchain
+% Presentation touching upon:
+% - What is blockchain
+% - Hand-on introduction to “crypto” (digital currency, tokens, wallets)
+% - ICO market and opportunities
+% - Hands-on creation of your own token (ICO basics)
+% - Smart contracts
+% - Regulations, Token classification, and STOs
+% - Main Blockchain technologies used in the Enterprise market
+% - Case studies
+% - Q&A
+% See https://www.eventbrite.ca/e/how-to-implement-blockchain-technology-in-your-business-tickets-49920546699
+% 
+\frame{
+	\frametitle{Organized by}
+	\begin{figure}
+		\includegraphics[width=3cm]{../pics/logos/lozard_logo}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Who am I?}
+	\framesubtitle{\url{https://www.linkedin.com/in/marclijour/}}
+	\begin{columns}
+	\column{0.3\textwidth}
+		\begin{figure}
+		\includegraphics[width=2cm]{../pics/logos/colliderx_logo}
+		\end{figure}
+	\column{0.3\textwidth}
+		\begin{figure}
+		\includegraphics[width=3.5cm]{../pics/logos/consensys-logo-v-630x581}
+		\end{figure}
+	\column{0.3\textwidth}
+		\begin{figure}
+		\includegraphics[width=3cm]{../../Metamesh-LaTeX_Templates/images/logo-full}
+		\end{figure}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{Team Experience}
+	\begin{figure}
+		\includegraphics[width=11cm]{../pics/Metamesh/metamesh-team-experience}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Access these slides}
+	\center\Huge 
+	\url{https://bit.ly/2rvX2HJ}\\ 
+	\vspace{2em}
+	{\Large 
+		or find by date:\\
+		\url{https://github.com/marclijour/presentations}
+	}
+}
+
+% ======================================================================================================
+%                         Introduction to the presentation and What is Blockchain 
+% ======================================================================================================
+\section{What is Blockchain?}
+\frame{
+	\frametitle{The Trust Machine}
+	\begin{figure}
+		\includegraphics[height=6cm]{../pics/blockchain/economist-trust-machine}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Source of Trust}
+	\framesubtitle{\href{https://www.youtube.com/watch?v=6WG7D47tGb0}{World Economic Forum: \textit{What is Blockchain} Youtube Video}}
+	\begin{figure}
+		\includegraphics[width=11cm]{../pics/blockchain/wef-blockchain-source-of-trust}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Key Cryptographic Primitives}
+	\begin{columns}[T]
+	\column{0.3\textwidth}
+		\centering \textbf{Signing}
+		\begin{figure}
+		\includegraphics[width=3cm]{../pics/cryptography/Private_key_signing}
+		\\
+		% CC-BY-SA
+		\tiny{Credit: \href{https://commons.wikimedia.org/wiki/User:FlippyFlink}{FlippyFlink}}
+		\end{figure}
+	\column{0.3\textwidth}
+		\centering \textbf{Encrypting}
+		\begin{figure}
+		% https://en.wikipedia.org/wiki/File:Public_key_encryption.svg
+		% public domain
+		\includegraphics[width=3cm]{../pics/cryptography/1050px-Public_key_encryption}
+		\end{figure}
+	\column{0.3\textwidth}
+		\centering \textbf{Hashing}
+		\begin{figure}
+		% https://commons.wikimedia.org/wiki/File:Cryptographic_Hash_Function.svg
+		% public domain
+		\includegraphics[width=3.6cm]{../pics/cryptography/Cryptographic_Hash_Function}
+		\end{figure}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{Where do we need more trust?}
+	\begin{itemize}
+		\item payments
+		\pause
+		\item national identity
+		\pause
+		\item supply chain (e.g. food: \href{https://www.ctvnews.ca/business/france-holds-trial-over-horse-meat-used-in-school-lunches-frozen-lasagna-1.4261868}{Spanghero horse meat trial}, Opioids, expensive cargos)
+		\pause
+		\item contracts 
+		\pause
+		\item \textit{real} news \& historical events (e.g. \href{https://media.consensys.net/holding-war-criminals-accountable-with-the-ethereum-blockchain-6b12471a7cdd}{bombings})
+		\pause
+		\item collaborative data reporting
+		\item \ldots
+	\end{itemize}
+}
+
+% ======================================================================================================
+%                         Hands-on Introduction to Crypto, Wallets, and Custom Tokens 
+% ======================================================================================================
+\section{Hands-on Introduction to Crypto}
+\frame{
+	\frametitle{}
+	\centering\Huge
+	Let's try things out!
+}
+
+\frame{
+	\frametitle{Install MetaMask}
+	\begin{columns}
+	\column{0.6\textwidth}
+		Follow step by step:
+		\begin{enumerate}
+			\item Install the \href{https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn}{Chrome/Chromium extension} 
+			\item Watch the \href{https://www.youtube.com/watch?v=6Gf\_kRE4MJU}{intro on Youtube}
+			\item Create an account 
+			\item Switch to the Ropsten Testnet (top-right in MetaMask) 
+			\item Fill your account with Ether from \url{https://faucet.metamask.io}
+		\end{enumerate}
+	\column{0.4\textwidth}
+		\begin{figure}
+			\includegraphics[width=3cm]{../pics/ethereum/metamask-logo}
+			\captionsetup{justification=centering}
+			\caption*{\url{https://metamask.io}}
+		\end{figure}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{Request Ether from the faucet (on the Ropsten network)}
+	\framesubtitle{Do it several times; then donate 1 ether to the faucet}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/faucet-ropsten}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Check the transaction on Metamask}
+	\framesubtitle{Click on the transaction for a detailed view}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/metamask-tx-pane-2018}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Check the transaction on Etherscan}
+	\begin{figure}
+		\includegraphics[width=10.9cm]{../pics/ethereum/etherscan-tx-example2}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{A note about gas price}
+	\framesubtitle{\url{https://ethgasstation.info}}
+	\begin{figure}
+		\includegraphics[width=11.5cm]{../pics/ethereum/ethgasstation}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Price of (real) ether: ETH}
+	\framesubtitle{More information: \url{https://www.tradingview.com/symbols/ETHUSD/}}
+	\begin{figure}
+		\includegraphics[width=11.5cm]{../pics/ethereum/ETH-USD-2018-12-12}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Wallets}
+	\framesubtitle{More information: \url{https://blockgeeks.com/guides/cryptocurrency-wallet-guide/}}
+	\begin{figure}
+		\includegraphics[width=11.5cm]{../pics/ethereum/wallets}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Exchanges}
+	\begin{enumerate}
+		\item Centralized Exchanges (Coinbase, Quadriga, ...)
+		\item Decentralized Exchanges
+	\end{enumerate}
+}
+
+\frame{
+	\frametitle{ATMs}
+	\framesubtitle{More information: \url{https://coinatmradar.com/country/38/bitcoin-atm-canada/}}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/bitcoin-atms-canada-2019-01}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{ATMs}
+	\framesubtitle{More information: \url{https://coinatmradar.com/country/38/bitcoin-atm-canada/}}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/bitcoin-atms-ontario-quebec-2019-01}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Other crypto-assets}
+	\framesubtitle{More information: \url{https://www.tradingview.com/markets/cryptocurrencies/prices-all/}}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/coinslist-2018}
+	\end{figure}
+}
+
+% ======================================================================================================
+%                         ICOs, STOs, and other Token launches 
+% ======================================================================================================
+\section{ICOs, STOs, and other Token launches}
+\frame{
+	\frametitle{Ethereum, Alt-Coins, and ICOs}
+	\begin{enumerate}
+		\item 94\% of the top 100 tokens are built on top of Ethereum
+		\item \$5.5 billion raised in 2017
+		\item \$6.5 billion raised in the first quarter of 2018
+		\item Ethereum has the largest developer community
+		\item Close to 2,000 dapps (decentralized applications) counted on Ethereum
+	\end{enumerate}
+}
+
+\frame{
+	\frametitle{Amount raised by ICOs}
+	\framesubtitle{\tiny\url{https://cointelegraph.com/news/from-2-9-billion-in-a-month-to-hundreds-dead-trends-of-the-rollercoaster-ico-market-in-18-months}}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/blockchain/cointelegraph-ico-2018}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{ICOs fell down 90\% in 2018}
+	\framesubtitle{\tiny\url{https://www.investinblockchain.com/invest-in-icos/}}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/blockchain/autonomous-research-ico-funds-raised}
+	\end{figure}
+	\vspace{1em}
+	\tiny{see also \url{https://www.coindesk.com/dont-throw-the-crypto-tokens-out-with-the-bathwater}}
+}
+
+\frame{
+	\frametitle{Token Types}
+	\framesubtitle{\tiny\url{http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens/}}
+	\begin{figure}
+		\includegraphics[height=6cm]{../pics/blockchain/TCF-dimensions-only}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Token Types}
+	\framesubtitle{\tiny\url{http://www.untitled-inc.com/the-token-classification-framework-a-multi-dimensional-tool-for-understanding-and-classifying-crypto-tokens/}}
+	\begin{figure}
+		\includegraphics[height=6cm]{../pics/blockchain/TCF-Types-Table-only}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Crypto as seen by the Regulator (and the taxman)}
+	\begin{enumerate}
+		\item Cryptocurrency
+		\item Utility Token
+		\item Security Token
+	\end{enumerate}
+}
+
+\frame{
+	\frametitle{Create your own (ERC-20) token}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/token-factory-create}
+	\end{figure}
+	\vspace{-1em}
+	\begin{enumerate}
+		\item Use the Token Factory Dapp at \url{https://tokenfactory.surge.sh/\#/factory}
+		\item MetaMask will pop up (see picture above)
+		\item Submit the transaction (on the Ropsten Testnet)
+		\item Check your transaction on \url{https://ropsten.etherscan.io} 
+	\end{enumerate}
+}
+
+\frame{
+	\frametitle{Check your Smart Contract}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/metamask-contract-published}
+	\end{figure}
+	\vspace{-1em}
+	\begin{enumerate}
+		\item Select the ``Sent'' tab
+		\item Check the orange Copy icon (Tx Hash) 
+		\item Click on ``Contract Published''
+		\item That should bring you to Etherscan (see next page)
+	\end{enumerate}
+}
+
+\frame{
+	\frametitle{Verify the status of your transaction on Etherscan}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/etherscan-contract}
+		\captionsetup{justification=centering}
+		\caption*{Transaction Information: note the ``To'' line with your contract address}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Watch your Token}
+	\begin{columns}
+	\column{0.5\textwidth}
+		\begin{figure}
+			\includegraphics[width=3cm]{../pics/ethereum/metamask-add-token-1}
+		\end{figure}
+	\column{0.5\textwidth}
+		\begin{figure}
+			\includegraphics[width=3cm]{../pics/ethereum/metamask-add-token-2}
+		\end{figure}
+	\end{columns}
+	\begin{enumerate}
+		\item Click on the ``Add Token'' button
+		\item Wait for the next window (picture on the right)
+		\item Copy your contract address (from Etherscan)
+		\item Go back to your Token Factory tab, which should show an UI to interact with your contract or go to the URL: https://tokenfactory.surge.sh/\#/token/0x... (replace 0x... by your contract address)
+		\item Move coins around
+		\item In MetaMask, click on your token to check the tx on Etherscan 
+	\end{enumerate}
+}
+
+\frame{
+	\frametitle{}
+	\centering\Huge
+	Want to sell to token (ICO)? Consult your lawyer now...
+}
+
+
+% ======================================================================================================
+%                                     Hands-on Introduction to Smart Contracts 
+% ======================================================================================================
+\section{Introduction to Smart Contracts}
+\frame{
+	\frametitle{Remember: Ethereum}
+	%\framesubtitle{}
+	\begin{columns}
+	\column{0.5\textwidth}
+		Ethereum is a \textbf{decentralized platform that runs smart contracts}: applications that run exactly as programmed without any possibility of downtime, censorship, fraud or third party interference.\\
+		--- \url{https://ethereum.org}
+	\column{0.5\textwidth}
+		\begin{figure}
+			\includegraphics[height=6cm]{../pics/ethereum/471px-Ethereum_logo_2014}
+		\end{figure}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{Coding your first ERC-20 Smart Contract}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/remix-home}
+	\end{figure}
+	\begin{enumerate}
+		\item Open the Remix IDE at \url{https://remix.ethereum.org}
+		\item Close the ballot file 
+		\item Create a new file named TokenRecipient.sol 
+		\item Copy the code from \url{https://ethereum.org/token} (second white box, under ``The Code'', starting with ``pragma'')
+		\item Switch to the ``Run'' tab (top-right bar, after Compile)
+	\end{enumerate}
+	Reference:\\
+	\href{https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md}{ERC-20 Token Standard}
+}
+
+\frame{
+	\frametitle{Compiling Successfully}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/remix-compiling-ERC20}
+	\end{figure}
+	\begin{enumerate}
+		\item Two green boxes should show on the right 
+		\item TokenERC20 is the name of the contract (class)
+		\item tokenRecipient is the name of the interface
+		\item Switch to the ``Run'' tab (top right)
+	\end{enumerate}
+}
+
+\frame{
+	\frametitle{Submitting the Smart Contract}
+	\begin{figure}
+		\includegraphics[width=10cm]{../pics/ethereum/remix-creating-ERC20}
+	\end{figure}
+	\begin{enumerate}
+		\item Under the dropdown showing ``TokenERC20'', add a number (total amount of tokens to issue) and two strings (the latter is the token symbol)
+		\item Add enough gas (top right, try 30)
+		\item Click Create and check whether MetaMask needs confirmation
+	\end{enumerate}
+}
+\frame{
+	\frametitle{Interacting with the contract}
+	\begin{columns}
+	\column{0.4\textwidth}
+		\begin{enumerate}
+			\item A new interface will pop up on the bottom right corner of the IDE
+		\end{enumerate}
+	\column{0.6\textwidth}
+		\begin{figure}
+			\includegraphics[height=7cm]{../pics/ethereum/remix-ERC20-interact}
+		\end{figure}
+	\end{columns}
+}
+
+\frame{
+	\frametitle{}
+	\centering\Huge
+	Tools for Developers
+}
+
+\frame{
+	\frametitle{Truffle Framework}
+	\framesubtitle{\url{http://truffleframework.com}}
+	\begin{figure}
+		\includegraphics[width=11cm]{../pics/ConsenSys/truffle}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Infura}
+	\framesubtitle{\url{http://infura.io}}
+	\begin{figure}
+		\includegraphics[width=11cm]{../pics/ConsenSys/infura}
+	\end{figure}
+}
+
+\begin{frame}[fragile]
+	\frametitle{Mythril}
+	\framesubtitle{\url{https://github.com/ConsenSys/mythril}}
+	Mythril is a security analysis tool for smart contracts.\\
+	It comes as a Python package that requires a solidity compiler and a C++ compiler.
+	\vspace{1em}
+	\begin{Verbatim}[fontsize=\tiny]
+$ sudo apt install libssl-dev
+$ sudo apt install gcc g++
+$ sudo add-apt-repository ppa:ethereum/ethereum
+$ sudo apt install solc
+$ sudo pip3 install mythril 
+$ myth -x contracts/higherbidder.sol 
+	\end{Verbatim}
+	\vspace{3em}
+	{\footnotesize See also \url{https://hackernoon.com/introducing-mythril-a-framework-for-bug-hunting-on-the-ethereum-blockchain-9dc5588f82f6}}
+\end{frame}
+
+\frame{
+	\frametitle{Big Data and Analytics on Ethereum}
+	\framesubtitle{\url{https://aleth.io}}
+	\begin{figure}
+		\includegraphics[width=11cm]{../pics/ConsenSys/alethio-tracking-viz}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Getting paid for your work: The Bounties Network}
+	\framesubtitle{\url{https://bounties.network}}
+	\begin{figure}
+		\includegraphics[width=11cm]{../pics/ConsenSys/bounties_network_stack}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Gitcoin}
+	\framesubtitle{\url{https://gitcoin.co}}
+	\begin{figure}
+		\includegraphics[width=11cm]{../pics/ConsenSys/gitcoin-tldr}
+	\end{figure}
+}
+
+
+
+% ======================================================================================================
+%                         Enterprise Blockchain
+% ======================================================================================================
+\section{Enterprise Blockchain}
+\frame{
+	\frametitle{A more connected world}
+	%\framesubtitle{}
+	\begin{figure}
+	\includegraphics[height=6cm]{../pics/ethereum/networktypes}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{50 billion connected devices ($\sim$7 x 7 billion people)}
+	\framesubtitle{\tiny\url{https://www.statista.com/statistics/678739/forecast-on-connected-devices-per-person/}}
+	\begin{figure}
+	\includegraphics[height=6cm]{../pics/IoT/connected-devices-2003-2020}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Blockchain can remove intermediaries in multi-sided markets}
+	%\framesubtitle{}
+	\begin{figure}
+	\includegraphics[height=3.5cm]{../pics/blockchain/two-sided-market}
+	\end{figure}
+	\vspace{1em}
+	\tiny{see also \url{https://www.forbes.com/sites/forbestechcouncil/2016/06/22/how-to-succeed-with-a-platform-business-model/\#28c634ce405b} and \url{https://www.applicoinc.com/blog/what-is-a-platform-business-model/}}
+}
+
+
+
+% ======================================================================================================
+%                         Case Studies (ConsenSys) 
+% ======================================================================================================
+\frame{
+	\frametitle{}
+	\centering\Huge
+	Case Studies
+}
+
+\frame{
+	\frametitle{Case Study: Ontario farmers sell corn on Blockchain rails}
+	\framesubtitle{\tiny\url{https://farmtario.com/crops/ontario-farmers-make-first-blockchain-system-corn-sale/}}
+	\begin{figure}
+	\includegraphics[height=6cm]{../pics/case_studies/ontario-farmers-corn2019}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Case Study: Walmart, Nestle, Unilever and others track the food supply chain}
+	\framesubtitle{\tiny\url{https://cointelegraph.com/news/walmart-ibm-blockchain-initiative-aims-to-track-global-food-supply-chain}}
+	\begin{figure}
+	\includegraphics[height=6cm]{../pics/case_studies/walmart-ibm-2018}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Case Study: Trade Finance}
+	%\framesubtitle{}
+	\begin{figure}
+	\includegraphics[height=6cm]{../pics/ConsenSys/case_studies/komgo}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Case Study: Payment}
+	%\framesubtitle{}
+	\begin{figure}
+	\includegraphics[height=6cm]{../pics/ConsenSys/case_studies/unionbank-kaleido}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Case Study: ATB, Evernym, IBM Workday}
+	%\framesubtitle{}
+	\begin{figure}
+	\includegraphics[height=6cm]{../pics/case_studies/atb-evernym-ibm-workday}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Case Study: Alberta Credentials Ecosystem}
+	%\framesubtitle{}
+	\begin{figure}
+	\includegraphics[height=6cm]{../pics/case_studies/alberta-credentials-ecosystem}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Case Study: Issuance of Financial Instruments}
+	%\framesubtitle{}
+	\begin{figure}
+	\includegraphics[height=6cm]{../pics/ConsenSys/case_studies/mccarthy-tetrault}
+	\end{figure}
+}
+
+% ======================================================================================================
+%                         Business Strategies 
+% ======================================================================================================
+\frame{
+	\frametitle{}
+	\centering\Huge
+	Where are the business opportunities?
+}
+
+\frame{
+	\frametitle{Digitizing the industry \& supply chain}
+	%\framesubtitle{}
+	\begin{figure}
+	\includegraphics[height=6cm]{../pics/blockchain/consortium-types}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Empower the individual}
+	\begin{itemize}
+		\item control on one's identity and data
+		\item privacy
+		\item share in the ad economy (e.g. Basic Attention Token)
+		\item censorship resistence \& freedom of expression
+		\item banking the unbanked
+		\item workers rights (e.g. Levi's)
+		\item voting
+		\item \dots
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Discussion on business models}
+	\begin{itemize}
+		\item Product focus % e.g. an identity wallet
+		\item Platform 
+		\item Services % e.g. System Integrator, Business Advisory
+	\end{itemize}
+}
+
