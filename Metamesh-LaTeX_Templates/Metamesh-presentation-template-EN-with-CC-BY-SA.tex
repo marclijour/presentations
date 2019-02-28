@@ -49,8 +49,11 @@
 	\tikz[remember picture,overlay] {
         	\node(bkgd) at ([xshift=0cm,yshift=0cm]current page.center) 
 			{\includegraphics[width=\paperwidth, height=\paperheight]{../../Metamesh-LaTeX_Templates/images/bkg-plain-black}};
-        	\node(logo) at ([xshift=0cm,yshift=2.7cm]current page.center) 
-		 	{\includegraphics[scale=.2]{../../Metamesh-LaTeX_Templates/images/logo-full}};
+		% two logos side by side 
+        	\node(logo) at ([xshift=-4cm,yshift=2.7cm]current page.center) 
+		 	{\includegraphics[scale=.5]{../../pics/logos/techconnex-logo}};
+        	\node(logo) at ([xshift=4cm,yshift=2.7cm]current page.center) 
+		 	{\includegraphics[scale=.1]{../../Metamesh-LaTeX_Templates/images/logo-white}};
         	\node(CC-BY-SA) at ([xshift=5cm,yshift=-4cm]current page.center) 
 			{\href{https://creativecommons.org/licenses/by-sa/2.5/ca/}{\includegraphics[scale=.4]{../../Metamesh-LaTeX_Templates/images/CC-BY-SA-403x141}}};
 	}
@@ -70,7 +73,7 @@
 			{\tiny\color{white}\Metameshdate};
         	\node(footnote) at ([xshift=0cm,yshift=-3.9cm]current page.center) 
 			%{\TINY\color{beamer@blendedblue}\emph{The Art and Science of Eternal Blossom}};
-			{\TINY\color{white}\emph{Metamesh Group is launching in 2019 supported by 30 Industry experts across 5 continents}};
+			{\TINY\color{white}\emph{Metamesh Group, your Trusted Advisors for Technology Transformation across the globe}};
         	%\node(footnote) at ([xshift=0cm,yshift=-4.1cm]current page.center) 
 		%	{\TINY\color{black}\emph{focusing on Blockchain and related technologies}};
     	}
@@ -78,7 +81,7 @@
 %
 % This sets the ColliderX logo at the bottom right corner of each page
 \logo{
-	\includegraphics[scale=.5]{../../Metamesh-LaTeX_Templates/images/logo}
+	\includegraphics[scale=.05]{../../Metamesh-LaTeX_Templates/images/logo-black}
 }
 \AtBeginSection[]
 {
