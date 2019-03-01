@@ -30,7 +30,8 @@
 \usetheme{Boadilla}
 % Set color close to Metamesh paletter
 %\definecolor{beamer@blendedblue}{RGB}{150,36,36}
-\definecolor{beamer@blendedblue}{RGB}{47,57,118} % dark blue
+%\definecolor{beamer@blendedblue}{RGB}{47,57,118} % dark blue
+\definecolor{beamer@blendedblue}{RGB}{75,56,0} % Metamesh colour (yellow)
 %\definecolor{beamer@blendedblue}{RGB}{0, 0, 0} % black
 % Cover Page
 \title[\Metameshtitle] {\Metameshlongtitle}
@@ -49,10 +50,8 @@
 	\tikz[remember picture,overlay] {
         	\node(bkgd) at ([xshift=0cm,yshift=0cm]current page.center) 
 			{\includegraphics[width=\paperwidth, height=\paperheight]{../../Metamesh-LaTeX_Templates/images/bkg-plain-black}};
-		% two logos side by side 
-        	\node(logo) at ([xshift=-4cm,yshift=2.7cm]current page.center) 
-		 	{\includegraphics[scale=.5]{../../pics/logos/techconnex-logo}};
-        	\node(logo) at ([xshift=4cm,yshift=2.7cm]current page.center) 
+		% standalone & centered
+        	\node(logo) at ([xshift=0cm,yshift=2.7cm]current page.center) 
 		 	{\includegraphics[scale=.1]{../../Metamesh-LaTeX_Templates/images/logo-white}};
         	\node(CC-BY-SA) at ([xshift=5cm,yshift=-4cm]current page.center) 
 			{\href{https://creativecommons.org/licenses/by-sa/2.5/ca/}{\includegraphics[scale=.4]{../../Metamesh-LaTeX_Templates/images/CC-BY-SA-403x141}}};
