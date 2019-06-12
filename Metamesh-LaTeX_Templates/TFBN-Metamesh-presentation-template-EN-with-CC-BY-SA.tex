@@ -1,0 +1,107 @@
+% (C) Marc Lijour, 2019
+% This document is licensed under a Creative Commons License BY-SA (feel free to use the code, but all rights are reserved for logos and art)
+% https://creativecommons.org/licenses/by-sa/2.5/ca/
+% Metamesh presentation template in LaTeX
+% This template comes with a first page on a picture background
+% Possible improvement in future iterations
+% - Test and fix as needed to work on xetex (to use Ubuntu fonts)
+% === USAGE===
+% Create a file for your LaTeX content (slides, etc), in which you must do the following:
+% TODO 1 - set variables defined below
+% TODO 2 - include this code by calling: \input{<the name of this document>}
+% TODO 3 - Start the document as usual and you're in business; just use \begin{document} and don't forget to conclude with \end{document}
+% TODO 4 - Use the custom method \Metameshcoverpage instead of \titlepage to create your cover page
+% Voilà!
+%
+\documentclass[utf8]{beamer}
+\usepackage{etoolbox}
+%\usepackage[american,french]{babel}
+%\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+% Variables
+% ---------------------- USER-DEFINED --------------------------------
+\ifdef{\Metameshtitle}{}{\newcommand{\Metameshtitle}{\color{red}Title TBD}}
+\ifdef{\Metameshlongtitle}{}{\newcommand{\Metameshlongtitle}{\color{red}Long title TBD}}
+\ifdef{\Metameshsubtitle}{}{\newcommand{\Metameshsubtitle}{\color{red}Subtitle TBD}}
+\ifdef{\Metameshauthor}{}{\newcommand{\Metameshauthor}{\color{red}Author TBD}}
+\ifdef{\Metameshdate}{}{\newcommand{\Metameshdate}{\color{red}Date TBD}}
+\ifdef{\Metameshsubject}{}{\newcommand{\Metameshsubject}{\color{red}Subject TBD}}
+% --------------------------------------------------------------------
+\usetheme{Boadilla}
+% Set color close to Metamesh paletter
+%\definecolor{beamer@blendedblue}{RGB}{150,36,36}
+%\definecolor{beamer@blendedblue}{RGB}{47,57,118} % dark blue
+\definecolor{beamer@blendedblue}{RGB}{75,56,0} % Metamesh colour (yellow)
+%\definecolor{beamer@blendedblue}{RGB}{0, 0, 0} % black
+% Cover Page
+\title[\Metameshtitle] {\Metameshlongtitle}
+\subtitle{\Metameshsubtitle}
+\author{\Metameshauthor}
+\date{\Metameshdate}
+\subject{\Metameshsubject}
+\usepackage{tikz}
+% Try Xetex to use system fonts (pdflatex makes it hard to import a font)
+%\usepackage{fontspec}
+%\setsansfont{Ubuntu}
+%\setmonofont{Ubuntu Mono}
+
+% -- create a custom (command) title page -which has the benefit of not affecting the settings for the rest of the presentation
+\newcommand{\Metameshcoverpage}{\frame[plain]{
+	\tikz[remember picture,overlay] {
+        	\node(bkgd) at ([xshift=0cm,yshift=0cm]current page.center) 
+			{\includegraphics[width=\paperwidth, height=\paperheight]{../../Metamesh-LaTeX_Templates/images/bkg-plain-black}};
+		% two logos side by side 
+        	\node(logo) at ([xshift=-4cm,yshift=2.9cm]current page.center) 
+		 	{\includegraphics[scale=.22]{../../pics/logos/LogoTFBN}};
+        	\node(logo) at ([xshift=4cm,yshift=2.7cm]current page.center) 
+		 	{\includegraphics[scale=.1]{../../Metamesh-LaTeX_Templates/images/logo-white}};
+        	\node(CC-BY-SA) at ([xshift=5cm,yshift=-4cm]current page.center) 
+			{\href{https://creativecommons.org/licenses/by-sa/2.5/ca/}{\includegraphics[scale=.4]{../../Metamesh-LaTeX_Templates/images/CC-BY-SA-403x141}}};
+	}
+	\tikz[remember picture,overlay] {
+        	\node(title) at ([xshift=0cm,yshift=0cm]current page.center) 
+			%{\Large\color{black}\textbf{{\Metameshlongtitle}}};
+			%{\Large\color{beamer@blendedblue}\textbf{{\Metameshlongtitle}}};
+			{\Large\color{white}\textbf{{\Metameshlongtitle}}};
+        	\node(subtitle) at ([xshift=0cm,yshift=-.7cm]current page.center) 
+			%{\small\color{beamer@blendedblue}\emph{\Metameshsubtitle}};
+			{\small\color{white}\emph{\Metameshsubtitle}};
+        	\node(author) at ([xshift=0cm,yshift=-2cm]current page.center) 
+			%{\small\color{beamer@blendedblue}By~\Metameshauthor};
+			{\small\color{white}By~\Metameshauthor};
+        	\node(date) at ([xshift=0cm,yshift=-2.5cm]current page.center) 
+			%{\tiny\color{beamer@blendedblue}\Metameshdate};
+			{\tiny\color{white}\Metameshdate};
+        	\node(footnote) at ([xshift=0cm,yshift=-3.9cm]current page.center) 
+			%{\TINY\color{beamer@blendedblue}\emph{The Art and Science of Eternal Blossom}};
+			{\TINY\color{white}\emph{Metamesh Group, your Trusted Advisors for Technology Transformation across the globe}};
+        	%\node(footnote) at ([xshift=0cm,yshift=-4.1cm]current page.center) 
+		%	{\TINY\color{black}\emph{focusing on Blockchain and related technologies}};
+    	}
+}}
+%
+% This sets the ColliderX logo at the bottom right corner of each page
+\logo{
+	\includegraphics[scale=.05]{../../Metamesh-LaTeX_Templates/images/logo-black}
+}
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+%\usepackage{newunicodechar}
+%\usepackage[format=plain,justification=raggedright,singlelinecheck=false]{caption}
+\usepackage[format=plain,justification=justified,singlelinecheck=false]{caption} % use this in document to remove "figure": 
+%	\captionsetup{labelformat=empty}\caption{caption content} 
+% or
+% 	\caption*{caption content here}
+\usepackage{dirtytalk}
+\usepackage{wrapfig}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{mathabx}
+%\usepackage{MnSymbol}
+\usepackage{fancyvrb}
+

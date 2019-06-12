@@ -1,0 +1,61 @@
+% (C) Marc Lijour, 2019 
+% Licensed under a Creative Commons License BY-SA
+% https://creativecommons.org/licenses/by-sa/2.5/ca/
+% Presentation at the Toronto French Business Network
+% Identity and Blockchain
+% Presentation touching upon:
+% - blockchain 101
+% - identity
+% - self sovereign identity
+% - applications
+% 
+% Variables
+% TODO set the variables
+% ---------------------- USER-DEFINED --------------------------------
+\newcommand{\Metameshtitle}{TFBN}
+\newcommand{\Metameshlongtitle}{Identity and Blockchain}
+\newcommand{\Metameshsubtitle}{at the Toronto French Business Network}
+\newcommand{\Metameshauthor}{Marc~Lijour}
+\newcommand{\Metameshdate}{June~12, 2019}
+\newcommand{\Metameshsubject}{TFBN}
+% --------------------------------------------------------------------
+% Template
+\input{../../Metamesh-LaTeX_Templates/TFBN-Metamesh-presentation-template-EN-with-CC-BY-SA.tex}
+% Extra packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+% Use one bib file per section
+\addbibresource{references.bib}
+\addbibresource{references-ethereum-history.bib}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+\AtBeginBibliography{\footnotesize}
+% Start of the document
+\begin{document}
+% Cover page
+% Do not use this: \frame{\titlepage}
+% use this instead:
+\Metameshcoverpage
+
+% Content
+\input{presentation-content}
+\frame{
+	\centering\Large{Thank you!}\\
+	\vspace{2em}
+	{\footnotesize
+		Email: \href{mailto:marc@metameshgroup.com}{marc@metameshgroup.com}\\
+		Twitter: \href{https://twitter.com/marclijour}{@marclijour}\\
+		\href{https://www.metameshgroup.com}{www.metameshgroup.com}
+	}
+}
+\frame[allowframebreaks]{
+	\frametitle{References}
+	% keyword refers to bib file: references-KEYWORD.bib, and to the Tex file: section-KEYWORD.tex  
+	\printbibliography 
+}
+\end{document}
+
