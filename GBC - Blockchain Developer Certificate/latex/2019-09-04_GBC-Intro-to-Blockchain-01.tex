@@ -1,0 +1,56 @@
+% (C) Marc Lijour, 2019 
+% Licensed under a Creative Commons License BY-SA
+% https://creativecommons.org/licenses/by-sa/2.5/ca/
+% Presentation for the Blockchain Developer Certificate students at George Brown College
+% Hands-on Introduction to Blockchain
+% 
+% Variables
+% TODO set the variables
+% ---------------------- USER-DEFINED --------------------------------
+\newcommand{\CEtitle}{Blockchain~Developer~Certificate}
+\newcommand{\CElongtitle}{Introduction to Blockchain}
+\newcommand{\CEsubtitle}{for George Brown College students}
+\newcommand{\CEauthor}{Marc~Lijour}
+\newcommand{\CEdate}{September~4, 2019}
+\newcommand{\CEsubject}{GBC~Blockchain}
+% --------------------------------------------------------------------
+% Template
+\input{../../Creative_Emergy-LaTeX_Templates/ce-presentation-template-EN-with-CC-BY-SA.tex}
+% Extra packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+% Use one bib file per section
+\addbibresource{references.bib}
+\addbibresource{references-ethereum-history.bib}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+\AtBeginBibliography{\footnotesize}
+% Start of the document
+\begin{document}
+% Cover page
+% Do not use this: \frame{\titlepage}
+% use this instead:
+\CEcoverpage
+
+% Content
+\input{presentation-content-intro01}
+\frame{
+	\centering\Large{Thank you!}\\
+	\vspace{2em}
+	{\footnotesize
+		Email: \href{mailto:marc@creative-emergy.com}{marc@creative-emergy.com}\\
+		Twitter: \href{https://twitter.com/marclijour}{@marclijour}\\
+		\href{https://www.metameshgroup.com}{www.metameshgroup.com}
+	}
+}
+\frame{
+	\frametitle{References}
+	% keyword refers to bib file: references-KEYWORD.bib, and to the Tex file: section-KEYWORD.tex  
+	\printbibliography 
+}
+\end{document}
+
