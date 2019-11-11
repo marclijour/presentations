@@ -1,0 +1,197 @@
+% (C) Marc Lijour, 2019 
+% Licensed under a Creative Commons License BY-SA
+% https://creativecommons.org/licenses/by-sa/2.5/ca/
+% Presentation for the Blockchain Developer Certificate students at George Brown College
+% ICOs and elements of a white paper
+
+\frame{ 
+	\frametitle{The good features of a Blockchain}
+    \begin{itemize}
+        \item Trust
+        \item Transparency
+        \item Tamper-resistant
+        \item Third-parties involved: Consensus
+        \item Transfer of money/valuable commodities
+        \item Tied to identity and yet capable of preserving privacy and anonymity
+        \item Treasures ownership at the edge (decentralized)
+    \end{itemize}
+}
+
+% ======================================================================================================
+%                         Loyalty Programs 
+% ======================================================================================================
+% - status today (before blockchain)
+
+\section{Loyalty programs}
+
+\frame{
+    \frametitle{Loyalty programs}
+    \begin{block}{Definition}
+       Loyalty programs are marketing devices to ensure a greater degree of repeat business.
+    \end{block}
+
+    \begin{exampleblock}{Examples}
+        Frequent flyer miles (e.g. Aeroplan), points cards (e.g. Air miles, Optimum), rewards for credit cards, coffee, hotels, car rentals\ldots
+    \end{exampleblock}
+}
+
+\frame{
+	\frametitle{Market size}
+	\begin{figure}
+        \centering
+		\includegraphics[width=11cm]{../pics/loyalty/colloquy-stats}
+        \caption{Colloquy numbers cited in \cite{tokenasia2019:loyalty}}
+	\end{figure}
+}
+
+\frame{
+    \frametitle{How it works}
+    \framesubtitle{The customer acquires points}
+    \begin{itemize}
+        \item get a welcome bonus amount of points
+        \item buy a service online or through an app to accumulate points
+        \item swap a card in-store
+        \item in some other forms, a subscription and level service such as Costco or Amazon prime (the more you pay, the better the deal)
+    \end{itemize}
+}
+
+\frame{
+    \frametitle{How it works}
+    \framesubtitle{The customer redeems points}
+    \begin{itemize}
+        \item customer goes to a website to exchange points for a concrete reward of their choice
+        \item customer exchange points for a discount pool (e.g. ESSO)
+        \item customer can forfeit points in-store for a service (e.g. a "free" bottle of water, a "free" car wash)
+        \item sometimes a free coffee (birthday or every x purchases)
+    \end{itemize}
+}
+
+\frame{
+	\frametitle{What really happens}
+	\begin{figure}
+        \centering
+		\includegraphics[width=11.5cm]{../pics/loyalty/tomochain-loyalty-complex}
+        \caption{\cite{tomochain2019:loyalty}}
+	\end{figure}
+}
+
+
+\frame{
+    \frametitle{Problem}
+    \begin{itemize}
+        \item it's a hassle to redeem (go online, etc)
+        \item there is no easy connection with partner loyalty programs that would facilitate the exchange of points
+        \item the programs can be expensive to administer (especially when not digitized)
+        \item programs can go away (e.g. Aeroplan)
+        \item dubious economic deal for the customer considering net present value and limited options to cash out
+    \end{itemize}
+    As a result, most people don't redeem their points\ldots \\
+    % the 2016 Bond loyalty report finds that only 50% are active users, and only 20% of those actually redeem their rewards
+    \vspace{1em}
+    However, enrollment in loyalty programs across various industries in the US grew by 20 percent to 3.32 billion in
+2015, and 80 to 90\% or people are more likely to choose a bank that offered rewards, according to \citeauthor{deloitte2016:blockchain:loyalty} (\citeyear{deloitte2016:blockchain:loyalty}).
+}
+
+% ======================================================================================================
+%                         Blockchain Solutions 
+% ======================================================================================================
+% - what blockchain brings to the picture
+% - notable illustrations and examples
+
+\section{Blockchain solutions}
+
+
+\frame{
+    \frametitle{A better way to run loyalty programs}
+%    \cite{deloitte2016:blockchain:loyalty}
+    Improvements such as
+    \begin{itemize}
+        \item interconnection between several programs
+        \item full digitization capabilities, including payments
+        \item possibility for secondary markets
+    \end{itemize}
+    Lead to
+    \begin{block}{a happier customer}
+        \begin{itemize}
+            \item more choice to redeem points
+            \item faster, almost instantaneous "can pay with points" experience, in-store or online
+            \item better deals in secondary markets 
+            \item possibility to gift points to family and friends
+        \end{itemize}
+    \end{block}
+    (and more cost-efficient programs at the same time)
+}
+
+\frame{
+	\frametitle{An example from the \citeauthor{deloitte2016:blockchain:loyalty} paper}
+	\begin{figure}
+		\includegraphics[width=11.5cm]{../pics/loyalty/deloitte-loyalty-customer-journey}
+	\end{figure}
+}
+
+\frame{
+    \frametitle{A smart token}
+    \begin{block}{Extra token features}
+    vesting schedule to unlock capabilities, space and time constraints, varying degrees of uniqueness (scarcity can command higher value for those items)
+    \end{block}    
+}
+
+\frame{
+    \frametitle{User control}
+    \begin{exampleblock}{Features}
+    The user collects the points on his/her own wallets (vs. logging to multiple websites).\\
+    \vspace{1em}
+    \textbf{Privacy}: the merchant can technically accept points as value on the sole basis of the token, without the need to verify the identity of the customer, by trusting the verification has been made earlier.\\
+    \vspace{1em}
+    \textbf{Transparency} and \textbf{persistence}: the rules are committed on the blockchain for everyone to read (in a tamper-resistant way). The points remain tradeable even after the issuer (possibly) goes out of business.
+    \end{exampleblock}
+}
+
+% ======================================================================================================
+%                         Illustrations 
+% ======================================================================================================
+% 
+
+\section{Illustrations}
+
+\frame{
+	\frametitle{American Express}
+	\begin{figure}
+        \centering
+		\includegraphics[height=6.5cm]{../pics/loyalty/amex-loyalty}
+        \caption{\url{https://www.ledgerinsights.com/amex-blockchain-rewards-american-express/}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Bunz}
+	\begin{figure}
+        \centering
+		\includegraphics[width=11.5cm]{../pics/loyalty/betakit-bunz}
+        \caption{\url{https://betakit.com/bunz-giving-users-digital-currency-for-viewing-advertisements-sharing-data/}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{qiibee}
+	\begin{figure}
+        \centering
+		\includegraphics[width=11.5cm]{../pics/loyalty/qiibee}
+        \caption{\url{https://qiibee.com/technology}}
+	\end{figure}
+}
+
+
+\frame{
+	\frametitle{LoyaltyOne}
+	\begin{figure}
+        \centering
+		\includegraphics[width=11.5cm]{../pics/loyalty/loyaltyone}
+        \caption{\cite{loyaltyone2018:blockchain}}
+%        \caption{\url{https://www.loyalty.com/home/insights/article-details/linking-loyalty-blockchain-principles-and-loyalty-potential}}
+	\end{figure}
+}
+
+
+
+
