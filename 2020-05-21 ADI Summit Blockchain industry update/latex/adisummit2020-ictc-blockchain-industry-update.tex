@@ -1,0 +1,457 @@
+% (C) ICTC, 2020
+% Licensed under a Creative Commons License BY-SA
+% https://creativecommons.org/licenses/by-sa/2.5/ca/
+% Presentation at the ADI Summit 2020
+% https://www.eventbrite.ca/e/adi-summit-and-hackathon-tickets-84090215097
+% http://adisummit.com
+% authored by Marc Lijour, May 19, 2020
+% 
+% Variables
+% TODO set the variables
+% ---------------------- USER-DEFINED --------------------------------
+\newcommand{\ICTCtitle}{Canadian~Blockchain~Industry}
+\newcommand{\ICTClongtitle}{The Blockchain industrial ecosystem in Canada}
+\newcommand{\ICTCsubtitle}{ADI Summit, Toronto 2020}
+\newcommand{\ICTCauthor}{Marc~Lijour}
+\newcommand{\ICTCdate}{May~21, 2020}
+\newcommand{\ICTCsubject}{Blockchain~industry}
+% --------------------------------------------------------------------
+% Template
+\input{../../ICTC-LaTeX_Templates/ictc-presentation-template-EN-with-CC-BY-SA.tex}
+%\input{../../ICTC-LaTeX_Templates/ictc-presentation-template-FR-with-CC-BY-SA.tex}
+% Extra packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{csquotes}
+\usepackage[american]{babel}
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+% Use one bib file per section
+\addbibresource{ictc-blockchain.bib}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+% special purpose
+% displaying fractional numbers
+\newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}
+\usepackage[labelformat=empty]{caption}
+% the following to work around conflicts with mathabx
+%\let\Sun\relax
+%\let\Moon\relax
+%\let\Mercury\relax
+%\let\Venus\relax
+%\let\Earth\relax
+%\let\Mars\relax
+%\let\Jupiter\relax
+%\let\Saturn\relax
+%\let\Uranus\relax
+%\let\Neptune\relax
+%\let\Pluto\relax
+%\let\Gemini\relax
+%\let\Leo\relax
+%\let\Libra\relax
+%\let\Scorpio\relax
+%\let\Aries\relax
+%\let\Taurus\relax
+%\usepackage{marvosym}
+\usepackage{fontawesome}
+% Start of the document
+\begin{document}
+% Cover page
+% Do not use this: \frame{\titlepage}
+% use this instead:
+\ICTCcoverpage
+
+% ======================================================================================================
+%                                     Introduction to ICTC
+% ======================================================================================================
+\section{A few words about ICTC}
+\frame{
+%	\frametitle{ICTC}
+	\begin{figure}
+	\includegraphics[width=11cm]{../../pics/ictc/ictc-at-a-glance2}
+	\caption{\tiny\url{https://www.ictc-ctic.ca}}
+	\end{figure}
+}
+
+\frame{
+  \frametitle{e-Talent Portal}
+	\begin{figure}
+	\includegraphics[width=11cm]{../../pics/ictc/etalent/etalent}
+	\end{figure}
+  \begin{block}{Services}
+    \begin{itemize}
+      \item information about the job markets
+      \item competency tools \& assessments
+      \item training
+      \item access to employment
+    \end{itemize}
+  \end{block}
+}
+
+\frame{
+	\begin{figure}
+	\includegraphics[width=11cm]{../../pics/ictc/etalent/jobsite}
+	\end{figure}
+}
+
+\frame{
+	\begin{figure}
+	\includegraphics[width=11cm]{../../pics/ictc/etalent/clientportal}
+	\end{figure}
+}
+
+\frame{
+	\begin{figure}
+	\includegraphics[width=11cm]{../../pics/ictc/wil/wil}
+	\end{figure}
+}
+
+%\frame{
+%  \frametitle{Leading the Blockchain supercluster bid (2017)}
+%	\begin{figure}
+%	\includegraphics[width=11cm]{../../pics/ictc/blockchain2019/fabulousfive2}
+%	\end{figure}
+%	\begin{itemize}
+%    \item ICTC, ColliderX, Blockchain Research Institute, and the two Canadian Blockchain associations
+%    \item goals: education, startups, R\&D, international visibility and promotion
+%		\item raised \$50 million dollars in pledges
+%    \item raised visibility and interest with the Federal government (ISED)
+%	\end{itemize}
+%}
+
+% ======================================================================================================
+%                                    Blockchain industry in Canada 
+% ======================================================================================================
+\section{The Blockchain industry in Canada}
+
+\frame{
+  \frametitle{Report on the Blockchain industry in Canada}
+  \begin{columns}[T]
+  \column{0.5\textwidth}
+%  \cite{ictc2019:blockchain}
+	\begin{figure}
+	\includegraphics[height=6cm]{../../pics/ictc/blockchain2019/ictc-blockchain-cover}
+	\end{figure}
+  \column{0.5\textwidth}
+    \vspace{2em}
+    A national study on the state of the Blockchain industry and its ecosystem in Canada (\citeyear{ictc2019:blockchain}).\\
+    \vspace{1em}
+    We looked at 288 firms and 1,600 workers and their role.\\
+    \vspace{1em}
+    Source: Web (incl. job boards), plus 24 interviews, and two group discussions.
+  \end{columns}
+}
+
+\frame{
+  \frametitle{Upcoming report on the Blockchain industry in Canada}
+  \framesubtitle{To be published \textbf{Summer~2020}}
+  \begin{columns}[T]
+  \column{0.5\textwidth}
+%  \cite{ictc2019:blockchain}
+	\begin{figure}
+	\includegraphics[height=6cm]{../../pics/ictc/blockchain2020/ICTC_Report_ChainReaction_Cover_Draft_Blue}
+	\end{figure}
+  \column{0.5\textwidth}
+    \vspace{2em}
+    Looking at the \textbf{Foreign Direct Investment} (FDI) opportunities for Canada.\\
+    \vspace{1em}
+    Primary research: 23 interviews with Blockchain professionals established outside of Canada.\\
+    \vspace{1em}
+    Secondary research: scholarly and industry literature.
+  \end{columns}
+}
+
+\frame{
+	\frametitle{Blockchain in Canada}
+	\begin{figure}
+  \hspace*{-1.25cm}
+	\includegraphics[width=11cm]{../../pics/ictc/blockchain2019/ictc-blockchain-in-canada-p19}
+	%\caption{\tiny\url{https://www.ictc-ctic.ca}}
+	\end{figure}
+}
+
+\frame{
+  \frametitle{Canadian companies per sector}
+	\begin{figure}
+  \hspace*{-1.25cm}
+	\includegraphics[width=11cm]{../../pics/ictc/blockchain2019/ictc-companies-per-sector-p24}
+	%\caption{\tiny\url{https://www.ictc-ctic.ca}}
+	\end{figure}
+}
+
+\frame{
+  \frametitle{Canadian companies per sector}
+	\begin{figure}
+  \hspace*{-1.25cm}
+	\includegraphics[width=11cm]{../../pics/ictc/blockchain2019/ictc-blockchain-sector-across-time-p25}
+	%\caption{\tiny\url{https://www.ictc-ctic.ca}}
+	\end{figure}
+}
+
+% ======================================================================================================
+%                                     Regional differenciation
+% ======================================================================================================
+\section{Regional differentiation}
+ 
+
+\frame{
+  \frametitle{Regional expertise}
+	\begin{figure}
+  \hspace*{-1.25cm}
+	\includegraphics[width=11cm]{../../pics/ictc/blockchain2019/ictc-blockchain-cies-per-province-p34}
+	%\caption{\tiny\url{https://www.ictc-ctic.ca}}
+	\end{figure}
+}
+
+\frame{
+  \frametitle{Regional expertise}
+	\begin{figure}
+  \hspace*{-1.25cm}
+	\includegraphics[width=11cm]{../../pics/ictc/blockchain2019/ictc-Canada-hubs-p31}
+	%\caption{\tiny\url{https://www.ictc-ctic.ca}}
+	\end{figure}
+}
+
+% ======================================================================================================
+%                                     Labour \& Skills
+% ======================================================================================================
+\section{Labour market and Talent}
+
+\frame{
+  \frametitle{Worker occupation per sector}
+	\begin{figure}
+  \hspace*{-1.25cm}
+	\includegraphics[width=11cm]{../../pics/ictc/blockchain2019/ictc-blockchain-workers-p30}
+  \caption{\tiny\textit{Figure: Average number of Blockchain workers per company or Blockchain business unit, by Industry (Canada, 2019)}}
+	\end{figure}
+}
+
+\frame{
+  \frametitle{Top developer jobs in Blokchain}
+	\begin{figure}
+  \hspace*{-1.25cm}
+	\includegraphics[height=8cm]{../../pics/ictc/blockchain2019/ictc-blockchain-devjobs-p44}
+	%\caption{\tiny\url{https://www.ictc-ctic.ca}}
+	\end{figure}
+}
+
+\frame{
+  \frametitle{Follow the jobs}
+	\begin{figure}
+  \hspace*{-1.25cm}
+	\includegraphics[width=11cm]{../../pics/ictc/blockchain2019/ictc-blockchain-job-posts-per-city-p35}
+  \caption{\tiny\textit{Figure: The total number of jobs posted in each city from November 2017 to August 2019}}
+	\end{figure}
+}
+
+\frame{
+  \frametitle{Skills in high demand}
+	\begin{figure}
+  \hspace*{-1.25cm}
+	\includegraphics[width=11cm]{../../pics/ictc/blockchain2019/ictc-blockchain-competencies-p48}
+	%\caption{\tiny\url{https://www.ictc-ctic.ca}}
+	\end{figure}
+}
+
+\frame{
+  \frametitle{Education}
+	\begin{figure}
+  \hspace*{-1.25cm}
+	\includegraphics[height=8cm]{../../pics/ictc/blockchain2019/ictc-blockchain-education-p40}
+	%\caption{\tiny\url{https://www.ictc-ctic.ca}}
+	\end{figure}
+}
+
+\frame{
+  \frametitle{Aiming for parity}
+  \begin{columns}[T]
+  \column{0.5\textwidth}
+	  \begin{figure}
+    %\hspace*{-1.25cm}
+	  \includegraphics[height=7cm]{../../pics/ictc/blockchain2019/ictc-blockchain-female-p45}
+	  %\caption{\tiny\url{https://www.ictc-ctic.ca}}
+	  \end{figure}
+  \column{0.5\textwidth}
+	  \begin{figure}
+    \captionsetup{justification=centering}
+    %\hspace*{2cm}
+    %\vspace{1cm}
+    \includegraphics[width=5cm]{../../pics/blockchain/thought-catalog-Xeo_7HSwYsA-unsplash}
+    \caption{\tiny\textit{Photo: credit goes to Thought Catalog (Unsplash)}}
+    \includegraphics[width=5cm]{../../pics/ictc/wil/wil-women}
+	  \end{figure}
+  \end{columns}
+}
+
+% ======================================================================================================
+%                                     Startups and New Ventures
+% ======================================================================================================
+\section{Startups and new ventures}
+
+%\frame{
+%  \frametitle{Types of firms}
+%	\begin{figure}
+%  \hspace*{-1.25cm}
+%	\includegraphics[width=11cm]{../../pics/ictc/blockchain2019/ictc-blockchain-canadian-patents-cie-size-p62}
+%	\caption{\tiny Proportions of types of cryptocurrency-related firms in our dataset}
+%	\end{figure}
+%}
+
+\frame{
+  \frametitle{Creation of Intellectual Property}
+	\begin{figure}
+  \hspace*{-1.25cm}
+	\includegraphics[width=11cm]{../../pics/ictc/blockchain2019/ictc-blockchain-canadian-patents-cumulative-p62}
+	%\caption{\tiny\url{https://www.ictc-ctic.ca}}
+	\end{figure}
+}
+
+\frame{
+  \frametitle{Smaller firms are gaining ground on creating Intellectual Property}
+	\begin{figure}
+  \hspace*{-1.25cm}
+	\includegraphics[width=11cm]{../../pics/ictc/blockchain2019/ictc-blockchain-canadian-patents-p55}
+	%\caption{\tiny\url{https://www.ictc-ctic.ca}}
+	\end{figure}
+}
+
+\frame{
+  \frametitle{Startups are maturing}
+	\begin{figure}
+  \hspace*{-1.25cm}
+	\includegraphics[width=11cm]{../../pics/ictc/blockchain2019/ictc-blockchain-firms-age-p57}
+  \caption{\tiny\textit{Figure: Average age of Blockchain firms funded after 2008 (Canada)}}
+	\end{figure}
+}
+
+\frame{
+  \frametitle{Startups are maturing}
+	\begin{figure}
+  \hspace*{-1.25cm}
+	\includegraphics[height=7cm]{../../pics/ictc/blockchain2019/ictc-blockchain-roles-p43}
+	\end{figure}
+}
+
+\frame{
+  \frametitle{Startups are maturing}
+	\begin{figure}
+  \hspace*{-1.25cm}
+	\includegraphics[height=7cm]{../../pics/ictc/blockchain2019/ictc-blockchain-cie-size-p44}
+	%\caption{\tiny\url{https://www.ictc-ctic.ca}}
+	\end{figure}
+}
+
+% ======================================================================================================
+%                                     Adoption and Change Management
+% ======================================================================================================
+\section{Adoption in organizations}
+
+\frame{
+	\frametitle{Expansion of Industry applications}
+	\begin{figure}
+  \hspace*{-1.25cm}
+	\includegraphics[width=11cm]{../../pics/ictc/blockchain2019/ictc-blockchain-usecases-p28}
+	%\caption{\tiny\url{https://www.ictc-ctic.ca}}
+	\end{figure}
+}
+
+
+%\frame{
+%  \frametitle{Convergence}
+%  \framesubtitle{of disruptive technologies and practices leads to exponential growth}
+%  \begin{columns}[T]
+%  \column{0.5\textwidth}
+%%  \cite{ictc2019:blockchain}
+%	\begin{figure}
+%  %\captionsetup{justification=centering,margin=2cm}
+%  \captionsetup{justification=centering}
+%	\includegraphics[height=6cm]{../../pics/convergence/pawel-nolbert-4u2U8EO9OzY-unsplash}
+%  \caption{\tiny\textit{Photo: credit goes to Pawel Nolbert (Unsplash)}}
+%	\end{figure}
+%  \column{0.5\textwidth}
+%    \vspace{2em}
+%    \begin{itemize}
+%      \item Blockchain
+%      \item AI
+%      \item 5G
+%      \item IoT
+%      \item Open collaboration
+%      \item Smart Cities
+%    \end{itemize}
+%  \end{columns}
+%}
+
+\frame{
+  \frametitle{Growth sectors and talent pull}
+  \begin{columns}[T]
+  \column{0.5\textwidth}
+	  \begin{figure}
+    %\hspace*{-1.25cm}
+	  \includegraphics[height=7cm]{../../pics/ictc/wil/growth-sectors}
+	  %\caption{\tiny\url{https://www.ictc-ctic.ca}}
+	  \end{figure}
+  \column{0.5\textwidth}
+	  \begin{figure}
+    \captionsetup{justification=centering}
+    %\hspace*{2cm}
+    %\vspace{1cm}
+    \includegraphics[height=4cm]{../../pics/ictc/pdr/outlook2023-cover}
+    %\caption{\tiny\textit{Photo: credit goes to Thought Catalog (Unsplash)}}
+	  \end{figure}
+    \vspace{-0.3cm}
+    Canada's demand for digitally-skilled talent is expected to reach 305,000 by 2023, for total employment of over 2 million in the digital economy.
+    %High demand for talent across all disciplines including STEM, Business, Arts, Humanities and Social Sciences.\\
+  \end{columns}
+}
+
+\frame{
+%	\frametitle{ICTC}
+	\begin{figure}
+  \captionsetup{justification=centering}
+	\includegraphics[width=12cm]{../../pics/education/gbc-blockchain-certificate-short}
+	\caption{\tiny\url{https://www.georgebrown.ca/programs/blockchain-development-program-t175}}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{Driving talent to the Financial Services industry}
+	\begin{figure}
+  \captionsetup{justification=centering}
+	\includegraphics[width=8cm]{../../pics/ictc/wil/wil-fintech}
+	\caption{\tiny\url{https://www.ictc-ctic.ca/upskilling-canadian-post-secondary-students-strengthening-fintech-industry/}}
+	\end{figure}
+  %Driving new talent to the Financial Services industry\ldots
+}
+
+% ======================================================================================================
+%                                     References
+% ======================================================================================================
+\section{References}
+\frame[allowframebreaks]{
+	\frametitle{References}
+%	\framesubtitle{Liens utiles}
+%	% keyword refers to bib file: references-KEYWORD.bib, and to the Tex file: section-KEYWORD.tex
+%	\printbibliography[keyword=inpe]
+  \printbibliography
+}
+
+\frame{
+  %\frametitle{}
+  \centering
+  \vspace{1em}
+  \Huge{Thank you}
+  \vspace{1em}
+  \begin{block}{Contact details}
+  \normalsize
+  Marc Lijour\\
+  Vice-President, Capacity Building and Innovation\\
+  % with marvosym
+  %\Letter~\href{mailto:m.lijour@ictc-ctic.ca}{m.lijour@ictc-ctic.ca}
+  \faEnvelope~\href{mailto:m.lijour@ictc-ctic.ca}{m.lijour@ictc-ctic.ca}\\
+  \faTwitter~\href{https://twitter.com/marclijour}{@marclijour}\\
+  \faLinkedin~\url{https://www.linkedin.com/in/marclijour/}\\
+  \faCloud~\url{https://www.ictc-ctic.ca}
+  \end{block}
+}
+\end{document}
+
