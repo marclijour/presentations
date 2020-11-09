@@ -4,13 +4,13 @@
 % Presentation for the Blockchain Developer Certificate students at George Brown College
 % ICOs and elements of a white paper
 
-%\frame{ 
-%	\frametitle{ICOs --the good, the bad, and the ugly}
-%    \begin{block}{About the Genesis of Blockchain networks}
-%    Bitcoin started the Blockchain phenomenon as a peer-to-peer network, which compensates peers for running its software on their own computers.\\
-%    What do you do with Bitcoins?
-%    \end{block}
-%}
+\frame{ 
+	\frametitle{ICOs --the good, the bad, and the ugly}
+    \begin{block}{About the Genesis of Blockchain networks}
+    Bitcoin started the Blockchain phenomenon as a peer-to-peer network, which compensates peers for running its software on their own computers.\\
+    What do you do with Bitcoins?
+    \end{block}
+}
 
 % ======================================================================================================
 %                         What are ICOs? 
@@ -18,51 +18,40 @@
 % - context, definition
 % - process
 % - examples (pointing a view, no details)
-\section{Bootstrapping utility platforms: mining, ICOs, and IEOs}
+\section{What are ICOs?}
+
 \subsection{Definitions}
-\frame{
-  \frametitle{Bootstrapping}
-  \begin{itemize}
-    \item What is the first blockchain network?
-    \item Who funded it's launch?
-  \end{itemize}
+\frame{ 
+	\frametitle{A definition of Initial Coin Offering (ICO)}
+    \begin{block}{Mirriam Webster}
+    an initial offering of a cryptocurrency to the public
+    \end{block}
+
+    \emph{\small Also called ITO, for Initial Token Offering.}
 }
 
-%\frame{ 
-%	\frametitle{A definition of Initial Coin Offering (ICO)}
-%    \begin{block}{Mirriam Webster}
-%    an initial offering of a cryptocurrency to the public
-%    \end{block}
-%
-%    \emph{\small Also called ITO, for Initial Token Offering.}
-%}
-
 \frame{
-	\frametitle{From Altcoins to all types of coins}
+% 
+	\frametitle{Distinction: Cryptocurrency vs. ICOs}
 	\begin{figure}
 		\includegraphics[width=10.5cm]{../pics/cryptocurrency/cryptolist-en}
 	\end{figure}
 }
 
 \frame{ 
-	\frametitle{Definitions}
+	\frametitle{Distinction: Cryptocurrency vs. ICOs}
     \begin{alertblock}{Cryptocurrency (Oxford dictionnary)}
      a digital currency in which encryption techniques are used to regulate the generation of units of currency and verify the transfer of funds, operating independently of a central bank.
     \end{alertblock}
 
-    \begin{exampleblock}{Initial Coin Offering (ICO)}
+    \begin{exampleblock}{ICO}
      a fundraising mechanism leveraging the issuance of a cryptocurrency.
     \end{exampleblock}
-    \emph{\small Also called Initial Token Offering (ITO).}
-
-    \begin{block}{Initial Exchange Offering (IEO)}
-      a fundraising mechanism leveraging a cryptocurrency exchange.
-    \end{block}
 }
 
 \frame{
 % https://medium.com/theventurecity/who-finances-the-startup-journey-96be3a9fccae
-	\frametitle{How startups are raising funds}
+	\frametitle{Source of funding for startups}
 	\begin{figure}
 		\includegraphics[width=10.5cm]{../pics/startups/startup-financing-cycle}
 	\end{figure}
@@ -80,7 +69,7 @@
         \item regulatory constraints
     \end{itemize}
 	\column{0.5\textwidth}
-    \textbf{ICOs/ITOs}
+    \textbf{ICOs}
     \begin{itemize}
         \item white paper
         \item anyone can launch a sale
@@ -88,14 +77,6 @@
         \item no limitation allowing schemes such as "pump and dump"
     \end{itemize}
     \end{columns}
-}
-
-\frame{ 
-	\frametitle{Average IEO Returns by Exchange Platforms}
-	\begin{figure}
-		\includegraphics[width=10.5cm]{../pics/exchanges/ieo-roi-2020-11}
-    \caption{extract from \citeauthor{cryptorank202011:ieo-roi} (Nov 9, 2020)}
-	\end{figure}
 }
 
 \frame{
@@ -136,9 +117,7 @@
 % https://cointelegraph.com/news/new-study-says-80-percent-of-icos-conducted-in-2017-were-scams
 	\frametitle{Notable ICO scams}
     \begin{itemize}
-        \pause
         \item the team runs with the investor's money (e.g. Modern Tech’s Pincoin ICO)
-        \pause
         \item misrepresentation of the team (e.g. fake founders in the case of Benebit)
         \item Ponzi schemes (e.g. Ponzicoin --it's in the name!; Plexcoin promised a 1,354\% return to US and Canadian investors)
         \item market manipulation (e.g. "pump and dump")
@@ -183,32 +162,6 @@
     \begin{block}{SAFE}
     A Simple Agreement for Future Equity (SAFE) allows to accept funds that can be converted to equity at a later stage.
     \end{block}
-
-    \begin{alertblock}{Failure of the SAFT framework}
-    \citeauthor{cointelegraph20200523:icodeath} wrote good summary of the evolving SEC position and actions, including the case of Kin and Telegram, which signals the limitation of SAFT (\citeyear{cointelegraph20200523:icodeath}).
-    \end{alertblock}
-}
-
-\frame{
-  \frametitle{The state of ICOs today}
-  \begin{itemize}
-    \item ICOs paved the way for IEOs and STOs
-    \item Mid-2019 the global crypto market cap. was about USD \$370~bn (\citeauthor{pwc2020:ico}, \citeyear{pwc2020:ico})
-    \item More than 380 token offerings in 2019, raising more than USD\$4.1~bn (\citeauthor{pwc2020:ico}, \citeyear{pwc2020:ico})
-    \item Avalanche
-  \end{itemize}
-	\begin{figure}
-		\includegraphics[width=10.5cm]{../pics/cryptocurrency/pwc2020-ico-volumes}
-    \caption{extract from \citeauthor{pwc2020:ico} (\citeyear{pwc2020:ico})}
-	\end{figure}
-}
-
-\frame{
-	\frametitle{Countries with most token offering traction}
-	\begin{figure}
-		\includegraphics[width=10.5cm]{../pics/cryptocurrency/pwc2020-ico-countries}
-    \caption{extract from \citeauthor{pwc2020:ico} (\citeyear{pwc2020:ico})}
-	\end{figure}
 }
 
 \frame{ 
@@ -290,7 +243,6 @@
     \url{https://icobench.com} \\
     \url{https://topicolist.com} \\
     \url{https://icostats.com}  \\
-    \url{https://icodrops.com/ico-stats/} \\
 }
 
 
@@ -298,11 +250,11 @@
 %                         Elements of a good white paper 
 % ======================================================================================================
 % - framework to use for students
-\section{White paper assessment framework}
+\section{What makes a good white paper}
 
 
 \frame{
-    \frametitle{Who buys into ICOs/IEOs?}
+    \frametitle{Who buys into ICOs?}
 
     \center\Huge  Elements of a white paper
 }
