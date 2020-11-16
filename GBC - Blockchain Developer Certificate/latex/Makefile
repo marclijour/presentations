@@ -1,7 +1,8 @@
-all: lecture1
+all: lecture3
 
 # Fall 2020
 target-bcdv1005-lecture1=2020-11-09_GBC_BCDV1005-lecture1
+target-bcdv1005-lecture3=2020-11-16_GBC_BCDV1005-lecture3
 
 # Older
 target-intro01=2019-09-04_GBC-Intro-to-Blockchain-01
@@ -15,11 +16,21 @@ clean:
 	rm -f ../*.aux ../*~ ../*.log ../*.bak ../*.bbl ../*.blg ../*.dvi ../*.backup ../*.lof ../*.toc ../*.lot ../*.nav 
 	rm -f ../*.out ../*.snm ../*.bcf ../*run.xml ../*-blx.bib ../*.vrb
 
+# New curriculum - as of Fall 2020
 lecture1:
 	pdflatex -output-directory .. ${target-bcdv1005-lecture1}
 	biber ../${target-bcdv1005-lecture1}
 	pdflatex -output-directory .. ${target-bcdv1005-lecture1}
 
+# lecture2: provided by Alim via Google slides
+
+lecture3:
+	pdflatex -output-directory .. ${target-bcdv1005-lecture3}
+	biber ../${target-bcdv1005-lecture3}
+	pdflatex -output-directory .. ${target-bcdv1005-lecture3}
+
+# ---
+# Legacy curriculum (Fall 2019 and Winter 2020)
 virtual:
 	pdflatex -output-directory .. ${target-bcdv1005-virtual}
 	biber ../${target-bcdv1005-virtual}

@@ -1,0 +1,62 @@
+% (C) Marc Lijour, 2020 
+% This course content for the Blockchain developer certificate at George Brown College 
+% authored by Marc Lijour is licensed under CC BY-SA 4.0. 
+% To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0
+% ---
+% 
+% Variables
+% TODO set the variables
+% ---------------------- USER-DEFINED --------------------------------
+\newcommand{\CEtitle}{Blockchain~Developer~Certificate}
+\newcommand{\CElongtitle}{Institutional usecases}
+\newcommand{\CEsubtitle}{with a focus on financial services}
+\newcommand{\CEauthor}{Marc~Lijour}
+\newcommand{\CEdate}{Novembre~16, 2020}
+\newcommand{\CEsubject}{GBC~Blockchain}
+% --------------------------------------------------------------------
+% Template
+\input{../../Creative_Emergy-LaTeX_Templates/ce-presentation-template-EN-with-CC-BY-SA.tex}
+% Extra packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+% Use one bib file per section
+\addbibresource{references.bib}
+\addbibresource{references-ethereum-history.bib}
+\addbibresource{references-basis.bib}
+\addbibresource{references-floss.bib}
+\addbibresource{references-virtual-assets.bib}
+\addbibresource{references-token-economy.bib}
+\addbibresource{references-loyalty.bib}
+\addbibresource{references-ml-textbook-fintech.bib}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+\AtBeginBibliography{\footnotesize}
+% Start of the document
+\begin{document}
+% Cover page
+% Do not use this: \frame{\titlepage}
+% use this instead:
+\CEcoverpage
+
+% Content
+\input{presentation-content-bcdv1005-institutional-fintech-and-usecases}
+\frame{
+	\centering\Large{Thank you!}\\
+	\vspace{2em}
+	{\footnotesize
+		Email: \href{mailto:marc@creative-emergy.com}{marc@creative-emergy.com}\\
+		Twitter: \href{https://twitter.com/marclijour}{@marclijour}\\
+		\href{https://www.creative-emergy.com}{www.creative-emergy.com}
+	}
+}
+\frame[allowframebreaks]{
+	\frametitle{References}
+	% keyword refers to bib file: references-KEYWORD.bib, and to the Tex file: section-KEYWORD.tex  
+	\printbibliography 
+}
+\end{document}
+
