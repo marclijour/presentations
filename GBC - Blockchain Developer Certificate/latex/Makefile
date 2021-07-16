@@ -1,8 +1,12 @@
-all: lecture3
+all: lecture1
 
-# Fall 2020
-target-bcdv1005-lecture1=2020-11-09_GBC_BCDV1005-lecture1
-target-bcdv1005-lecture3=2020-11-16_GBC_BCDV1005-lecture3
+# Winter 2021
+target-bcdv1005-lecture1=2021-03-15_GBC_BCDV1005-lecture1
+target-bcdv1005-lecture3=2021-03-22_GBC_BCDV1005-lecture3
+
+# Fall   2020
+#target-bcdv1005-lecture1=2020-11-09_GBC_BCDV1005-lecture1
+#target-bcdv1005-lecture3=2020-11-16_GBC_BCDV1005-lecture3
 
 # Older
 target-intro01=2019-09-04_GBC-Intro-to-Blockchain-01
