@@ -1,0 +1,120 @@
+% (C) Marc Lijour, 2023
+% This document is licensed under a Creative Commons License BY-SA (feel free to use the code, but all rights are reserved for logos and art)
+% https://creativecommons.org/licenses/by-sa/4.0/
+% Creative Emergy (CE) presentation template in LaTeX
+% This template comes with a first page on a picture background
+% Possible improvement in future iterations
+% - Test and fix as needed to work on xetex (to use Ubuntu fonts)
+% === USAGE===
+% Create a file for your LaTeX content (slides, etc), in which you must do the following:
+% TODO 1 - set variables defined below
+% TODO 2 - include this code by calling: \input{<the name of this document>}
+% TODO 3 - Start the document as usual and you're in business; just use \begin{document} and don't forget to conclude with \end{document}
+% TODO 4 - Use the custom method \CEcoverpage instead of \titlepage to create your cover page
+% Voilà!
+%
+\documentclass[utf8]{beamer}
+\usepackage{etoolbox}
+%\usepackage[american,french]{babel}
+%\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+\usepackage{fontawesome5}
+% Variables
+% ---------------------- USER-DEFINED --------------------------------
+\ifdef{\CEtitle}{}{\newcommand{\CEtitle}{\color{red}Title TBD}}
+\ifdef{\CElongtitle}{}{\newcommand{\CElongtitle}{\color{red}Long title TBD}}
+\ifdef{\CEsubtitle}{}{\newcommand{\CEsubtitle}{\color{red}Subtitle TBD}}
+\ifdef{\CEauthor}{}{\newcommand{\CEauthor}{\color{red}Author TBD}}
+\ifdef{\CEdate}{}{\newcommand{\CEdate}{\color{red}Date TBD}}
+\ifdef{\CEsubject}{}{\newcommand{\CEsubject}{\color{red}Subject TBD}}
+% --------------------------------------------------------------------
+\usetheme{Boadilla}
+% Set color close to CE palette
+%\definecolor{beamer@blendedblue}{RGB}{150,36,36}
+\definecolor{beamer@blendedblue}{RGB}{124,42,39}		% close to CE colour palette
+%\definecolor{beamer@blendedblue}{RGB}{93,96,93}		% cool gray
+\definecolor{links}{HTML}{7c2a27}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+% Cover Page
+\title[\CEtitle] {\CElongtitle}
+\subtitle{\CEsubtitle}
+\author{\CEauthor}
+\date{\CEdate}
+\subject{\CEsubject}
+\usepackage{tikz}
+% Try Xetex to use system fonts (pdflatex makes it hard to import a font)
+%\usepackage{fontspec}
+%\setsansfont{Ubuntu}
+%\setmonofont{Ubuntu Mono}
+
+% -- create a custom (command) title page -which has the benefit of not affecting the settings for the rest of the presentation
+\newcommand{\CEcoverpage}{\frame[plain]{
+	\tikz[remember picture,overlay] {
+        	\node(bkgd) at ([xshift=0cm,yshift=0cm]current page.center) 
+			{\includegraphics[width=\paperwidth, height=\paperheight]{../../Creative_Emergy-LaTeX_Templates/images/bkg4}};
+			
+			% logo positionned top left
+      %  	\node(logo) at ([xshift=-4.2cm,yshift=3.5cm]current page.center) 
+		 	%{\includegraphics[scale=.1]{../../Creative_Emergy-LaTeX_Templates/images/ce_logo_hr_name}};
+		 	
+		 	% logo positionned bottom left
+        	\node(logo) at ([xshift=-4.2cm,yshift=-4cm]current page.center) 
+		 	{\includegraphics[scale=.07]{../../Creative_Emergy-LaTeX_Templates/images/ce_logo_hr_name}};
+		 	
+		 	
+        	\node(CC-BY-SA) at ([xshift=5cm,yshift=-4cm]current page.center) 
+			{\href{https://creativecommons.org/licenses/by-sa/2.5/ca/}{\includegraphics[scale=.4]{../../Creative_Emergy-LaTeX_Templates/images/CC-BY-SA-403x141}}};
+	}
+	\tikz[remember picture,overlay] {
+      %  	\node(title) at ([xshift=0cm,yshift=0cm]current page.center)
+        	\node(title) at ([xshift=0cm,yshift=0.7cm]current page.center) 
+			%{\Large\color{black}\textbf{{\CElongtitle}}};
+			{\Large\color{beamer@blendedblue}\textbf{{\CElongtitle}}};
+			
+        %	\node(subtitle) at ([xshift=0cm,yshift=-.7cm]current page.center) 
+        	\node(subtitle) at ([xshift=0cm,yshift=0cm]current page.center) 
+			%{\small\color{beamer@blendedblue}\emph{\CEsubtitle}};
+			{\normalsize\color{beamer@blendedblue}\emph{\CEsubtitle}};
+			
+      %  	\node(author) at ([xshift=0cm,yshift=-2cm]current page.center) 
+        	\node(author) at ([xshift=0cm,yshift=-1cm]current page.center) 
+			{\small\color{beamer@blendedblue}By~\CEauthor};
+			
+      %  	\node(date) at ([xshift=0cm,yshift=-2.5cm]current page.center) 
+        	\node(date) at ([xshift=0cm,yshift=-1.5cm]current page.center) 
+			{\tiny\color{beamer@blendedblue}\CEdate};
+        	\node(footnote) at ([xshift=0cm,yshift=-4cm]current page.center) 
+			{\tiny\color{beamer@blendedblue}\emph{The Art and Science of Eternal Blossom}};
+        	%\node(footnote) at ([xshift=0cm,yshift=-4.1cm]current page.center) 
+		%	{\TINY\color{black}\emph{focusing on Blockchain and related technologies}};
+    	}
+}}
+% This sets the Creative Emergy logo at the top right corner of each page (modifying the chosen theme)
+\setbeamertemplate{headline}{\hfill\includegraphics[width=.8cm]{../../Creative_Emergy-LaTeX_Templates/images/Quetzalcoatl_Ourobouros-coloured-same}\hspace{0.2cm}\vspace{-1.1cm}}
+%
+% This sets the Creative Emergy logo at the bottom right corner of each page (as determined by the chosen theme)
+%\logo{	\includegraphics[scale=.05]{../../Creative_Emergy-LaTeX_Templates/images/Quetzalcoatl_Ourobouros-coloured-same}}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+%\usepackage{newunicodechar}
+%\usepackage[format=plain,justification=raggedright,singlelinecheck=false]{caption}
+\usepackage[format=plain,justification=justified,singlelinecheck=false]{caption} % use this in document to remove "figure": 
+%	\captionsetup{labelformat=empty}\caption{caption content} 
+% or
+% 	\caption*{caption content here}
+\usepackage{dirtytalk}
+\usepackage{wrapfig}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{mathabx}
+%\usepackage{MnSymbol}
+\usepackage{fancyvrb}
+
+
+

@@ -1,0 +1,82 @@
+% (C) Marc Lijour, 2021 
+% Licensed under a Creative Commons License BY-SA
+% https://creativecommons.org/licenses/by-sa/2.5/ca/
+% Presentation for the Blockchain Developer Certificate students at George Brown College
+% Hands-on Introduction to Blockchain
+% 
+% Variables
+% TODO set the variables
+% ---------------------- USER-DEFINED --------------------------------
+\newcommand{\CEtitle}{Lecture~for~Protexxa}
+\newcommand{\CElongtitle}{Introduction to Cryptography}
+\newcommand{\CEsubtitle}{for Protexxa Students}
+\newcommand{\CEauthor}{Marc~Lijour}
+\newcommand{\CEdate}{December~4, 2023}
+\newcommand{\CEsubject}{Protexxa}
+% --------------------------------------------------------------------
+% Template
+\input{../../Creative_Emergy-LaTeX_Templates/ce-presentation-template-EN-with-CC-BY-SA-v2.tex}
+% Extra packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+% Use one bib file per section
+\addbibresource{references.bib}
+%\definecolor{links}{HTML}{7c2a27}
+%\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+\AtBeginBibliography{\footnotesize}
+
+% Start of the document
+\begin{document}
+% Cover page
+% Do not use this: \frame{\titlepage}
+% use this instead:
+\CEcoverpage
+
+% Content
+\input{content-intro-crypto}
+\frame{
+	\centering\Large{Let's chat further!}\\
+	\vspace{1em}
+	
+	
+	\begin{columns}
+  \column{.4\textwidth}
+		\center\includegraphics[width=4.2cm]{../pics/Marc/MarcH-S-1}
+	
+  \column{.6\textwidth}
+	%\begin{center}\begin{minipage}{\textwidth}{
+	\footnotesize\setlength{\textwidth}{0.8\textwidth}
+		\begin{block}{Contact Details}
+			\faAt~\href{mailto:marc@creative-emergy.com}{marc@creative-emergy.com}\\
+			\faLinkedin~\href{https://www.linkedin.com/in/marclijour/}{Marc~Lijour}\\
+			\faTwitter~\href{https://twitter.com/marclijour}{@marclijour}\\
+			\faCalendarDay~\href{https://calendly.com/marclijour/introductory-call}{Calendly}
+%		\href{https://www.creative-emergy.com}{www.creative-emergy.com}
+		\end{block}
+	%}\end{minipage}\end{center}
+  \end{columns}
+	
+	%\vspace{1em}
+	\begin{columns}
+  \column{.25\textwidth}
+		\center\includegraphics[width=3cm]{../pics/Marc/logoIBU-dark}
+  \column{.25\textwidth}
+		\center\includegraphics[width=2.3cm]{../pics/Marc/IEEE Blockchain Locations Identifier_Canada}
+  \column{.25\textwidth}
+		\center\includegraphics[width=1.2cm]{../pics/Marc/Logo_FT_Toronto_FondBlanc}
+  \column{.25\textwidth}
+		\center\includegraphics[width=2.2cm]{../pics/Marc/bza-logo-small}
+  \end{columns}
+}
+
+\frame[allowframebreaks]{
+	\frametitle{References}
+	% keyword refers to bib file: references-KEYWORD.bib, and to the Tex file: section-KEYWORD.tex  
+	\printbibliography 
+}
+\end{document}
+
